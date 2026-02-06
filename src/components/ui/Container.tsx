@@ -1,23 +1,13 @@
 import React from 'react';
 import pop from '../../assets/logo/logo.png';
 
-type OverlayIntensity = 'light' | 'medium' | 'heavy';
-
 interface ContainerProps {
   children: React.ReactNode;
-  overlayIntensity?: OverlayIntensity;
   className?: string;
 }
 
-const overlayStyles: Record<OverlayIntensity, string> = {
-  light: 'bg-[#EDE7FF]/70',
-  medium: 'bg-[#E5DEFF]/85',
-  heavy: 'bg-[#DDD4FF]/92',
-};
-
 export const Container: React.FC<ContainerProps> = ({
   children,
-  overlayIntensity = 'medium',
   className = '',
 }) => {
   return (

@@ -18,20 +18,33 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   const [otp, setOtp] = useState<string[]>(Array(length).fill(''));
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  useEffect(() => {
-    // Initialize refs array
-    inputRefs.current = inputRefs.current.slice(0, length);
-  }, [length]);
-
-  useEffect(() => {
-    // Update internal state when value prop changes
+  // Initialize OTP from value prop
+  const [otp, setOtp] = useState<string[]>(() => {
     const digits = value.split('').slice(0, length);
     const newOtp = [...Array(length).fill('')];
     digits.forEach((digit, index) => {
       newOtp[index] = digit;
     });
-    setOtp(newOtp);
-  }, [value, length]);
+    return newOtp;
+  });
+
+  useEffect(() => {
+    // Initialize refs array
+    inputRefs.current = inputRefs.current.slice(0, length);
+  }, [length]);
+
+  // Update internal state only when value changes from parent
+  useEffect(() => {
+    const digits = value.split('').slice(0, length);
+    const currentValue = otp.join('');
+    if (currentValue !== value) {
+      const newOtp = [...Array(length).fill('')];
+      digits.forEach((digit, index) => {
+        newOtp[index] = digit;
+      });
+      setOtp(newOtp);
+    }
+  }, [value, length, otp]);
 
   useEffect(() => {
     // Auto-focus first input on mount if autoFocus is true
@@ -111,7 +124,9 @@ export const OTPInput: React.FC<OTPInputProps> = ({
       {otp.map((digit, index) => (
         <input
           key={index}
-          ref={(el) => (inputRefs.current[index] = el)}
+          ref={(el) => {
+            inputRefs.current[index] = el;
+          }}
           type="text"
           inputMode="numeric"
           maxLength={1}
