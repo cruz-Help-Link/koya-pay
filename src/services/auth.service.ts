@@ -69,6 +69,7 @@ class AuthService {
         data: result,
       };
     } catch (error) {
+      console.error('Registration error:', error);
       return {
         success: false,
         error: 'Network error. Please check your connection.',
@@ -105,6 +106,7 @@ class AuthService {
         message: 'Redirecting to authentication...',
       };
     } catch (error) {
+      console.error('Social auth error:', error);
       return {
         success: false,
         error: 'Social authentication failed',
@@ -145,6 +147,7 @@ class AuthService {
         data: result,
       };
     } catch (error) {
+      console.error('Login error:', error);
       return {
         success: false,
         error: 'Network error. Please check your connection.',
@@ -203,6 +206,7 @@ class AuthService {
       
       return accessToken;
     } catch (error) {
+      console.error('Token refresh error:', error);
       this.clearTokens();
       return null;
     }

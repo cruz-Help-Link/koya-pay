@@ -1,6 +1,5 @@
 // screens/AccountTypeScreen.tsx
 import React, { useState } from 'react';
-import { Button } from '../components/ui/Button';
 import { SocialButton } from '../components/ui/SocialButton';
 import { Container } from '../components/ui/Container';
 
@@ -10,7 +9,7 @@ export const AccountTypeScreen: React.FC = () => {
   const [selectedType, setSelectedType] = useState<AccountType>(null);
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-24 pb-12">
         {/* Logo */}
         <div className="mb-6 lg:mb-8">

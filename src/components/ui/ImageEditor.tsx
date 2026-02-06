@@ -3,22 +3,16 @@ import { useState } from 'react';
 interface ImageEditorProps {
   imageSrc: string;
   onSave: (editedImage: string) => void;
-  onCancel: () => void;
+  onCancel?: () => void;
 }
 
 export const ImageEditor: React.FC<ImageEditorProps> = ({
   imageSrc,
   onSave,
-  onCancel,
 }) => {
   const [crop, setCrop] = useState(50);
   const [enhance, setEnhance] = useState(50);
   const [exposure, setExposure] = useState(50);
-
-  const handleSave = () => {
-    // In a real implementation, apply the edits and return edited image
-    onSave(imageSrc);
-  };
 
   return (
     <div className="flex flex-col h-full">
