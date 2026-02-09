@@ -1,9 +1,11 @@
 // screens/VerifyEmailScreen.tsx
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 
 export const VerifyEmailScreen: React.FC = () => {
+  const navigate = useNavigate();
   const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
   const [timer, setTimer] = useState(59);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -57,6 +59,10 @@ export const VerifyEmailScreen: React.FC = () => {
             <br />
             that was sent to your Email
           </p>
+          <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-xl p-3 text-xs text-gray-600">
+            <p className="font-medium text-yellow-800 mb-1">⚠️ Demo Mode</p>
+            <p>No actual OTP is sent. This is a UI demo without backend integration. Enter any 6 digits to continue.</p>
+          </div>
         </div>
 
         {/* OTP Input */}
@@ -101,10 +107,14 @@ export const VerifyEmailScreen: React.FC = () => {
             variant="primary"
             fullWidth
             disabled={otp.some((digit) => !digit)}
+            onClick={() => navigate('/signup/account-type')}
           >
             Verify
           </Button>
-          <button className="w-full text-center py-2 text-[#1a1a1a] font-semibold hover:text-[#2D1B69] transition-colors">
+          <button 
+            onClick={() => navigate('/signup/details')}
+            className="w-full text-center py-2 text-[#1a1a1a] font-semibold hover:text-[#2D1B69] transition-colors"
+          >
             Back
           </button>
         </div>

@@ -1,0 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+import { OnboardingCompletePage as OnboardingCompletePageComponent } from '../../pages/onboarding';
+import { useOnboardingStore } from '../../stores';
+
+export const OnboardingCompletePage = () => {
+  const navigate = useNavigate();
+  const { reset } = useOnboardingStore();
+
+  const handleGoToDashboard = () => {
+    reset();
+    navigate('/');
+  };
+
+  return (
+    <OnboardingCompletePageComponent
+      onGoToDashboard={handleGoToDashboard}
+    />
+  );
+};

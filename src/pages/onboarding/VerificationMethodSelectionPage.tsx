@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-export enum VerificationMethod {
-  UTILITY_BILL = 'utility_bill',
-  LIVE_PHOTO = 'live_photo',
-  LETTERHEAD = 'letterhead',
-}
+import type { VerificationMethod } from '../../types';
 
 interface VerificationMethodOption {
   method: VerificationMethod;
@@ -14,17 +9,17 @@ interface VerificationMethodOption {
 
 const VERIFICATION_METHODS: VerificationMethodOption[] = [
   {
-    method: VerificationMethod.UTILITY_BILL,
+    method: 'utility_bill',
     title: 'Utility bill (last 3 months)',
     description: 'Upload a recent utility bill',
   },
   {
-    method: VerificationMethod.LIVE_PHOTO,
+    method: 'live_photo',
     title: 'Live photo at premises (with geotag)',
     description: 'Take a photo at your business location',
   },
   {
-    method: VerificationMethod.LETTERHEAD,
+    method: 'letterhead',
     title: 'Letterhead + phone callback',
     description: 'Company letterhead with verification call',
   },

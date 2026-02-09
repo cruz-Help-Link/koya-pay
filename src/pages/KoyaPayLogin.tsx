@@ -1,14 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const KoyaPayLogin: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 flex items-center justify-center p-4">
       {/* Container - responsive max width */}
       <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
         {/* Phone frame simulation for larger screens */}
         <div className="bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 rounded-3xl lg:rounded-[3rem] overflow-hidden">
-          {/* Top notch simulation (hidden on mobile, shown on larger screens) */}
-          
           {/* Main content */}
           <div className="px-8 py-12 lg:px-8 lg:py-10 xl:px-16 xl:py-20 flex flex-col items-center justify-center min-h-[600px] lg:min-h-[700px]">
             {/* Logo */}
@@ -33,7 +34,7 @@ const KoyaPayLogin: React.FC = () => {
               {/* Login Account Button */}
               <button
                 className="w-full py-4 lg:py-5 px-6 bg-white/40 backdrop-blur-sm text-gray-900 font-semibold rounded-full border-2 border-gray-900/20 hover:bg-white/60 transition-all duration-200 text-base lg:text-lg shadow-md hover:shadow-lg"
-                onClick={() => console.log('Login clicked')}
+                onClick={() => alert('Login functionality coming soon!')}
               >
                 Login Account
               </button>
@@ -41,7 +42,7 @@ const KoyaPayLogin: React.FC = () => {
               {/* Sign Up Button */}
               <button
                 className="w-full py-4 lg:py-5 px-6 bg-gradient-to-r from-indigo-900 to-purple-900 text-white font-semibold rounded-full hover:from-indigo-800 hover:to-purple-800 transition-all duration-200 text-base lg:text-lg shadow-lg hover:shadow-xl"
-                onClick={() => console.log('Sign up clicked')}
+                onClick={() => navigate('/signup')}
               >
                 Sign UP
               </button>

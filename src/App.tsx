@@ -1,17 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SignupMethodScreen } from "./pages/SignUpMethod";
-import KoyaPayLogin from "./pages/KoyaPayLogin";
-import type { AccountType } from "./types";
-import { VerifyEmailScreen } from "./screens/VerifyEmailScreen";
-import { BusinessDetailsFormPage } from "./pages/onboarding";
-
-
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
-  
-   return (
-    <BusinessDetailsFormPage />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

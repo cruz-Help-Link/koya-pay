@@ -46,37 +46,40 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
   };
 
   return (
-    <div className="flex flex-col min-h-screen px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex flex-col px-6 py-8">
       {/* Header */}
       <div className="mb-6">
         <div className="flex items-center justify-center mb-4">
-          <div className="w-12 h-12 bg-koya-primary rounded-xl flex items-center justify-center">
-            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-lg opacity-30"></div>
+            <div className="relative w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\" />
+              </svg>
+            </div>
           </div>
         </div>
 
-        <div className="text-left space-y-1">
-          <h1 className="text-xl font-bold text-koya-text-primary">
-            Owner's Verification
+        <div className="text-center space-y-1">
+          <h1 className="text-2xl font-bold text-gray-900">
+            Business Details
           </h1>
-          <p className="text-sm text-koya-text-secondary">
-            Verify owner and business
+          <p className="text-sm text-gray-600">
+            Tell us about your business
           </p>
         </div>
       </div>
 
       {/* Form */}
-      <div className="flex-1 space-y-3">
+      <div className="flex-1 space-y-4 max-w-md mx-auto w-full">
         <Input
           placeholder="Business Name"
           value={formData.businessName}
           onChange={handleChange('businessName')}
           leftIcon={
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
             </svg>
           }
         />
@@ -117,7 +120,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
 
         {/* Description Textarea */}
         <div className="relative">
-          <label className="block text-xs text-koya-text-secondary mb-2 ml-1">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Short Description
           </label>
           <textarea
@@ -125,21 +128,21 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
             value={formData.description}
             onChange={handleChange('description')}
             rows={4}
-            className="w-full px-4 py-3 rounded-koya
-                     bg-koya-light/50 backdrop-blur-sm
-                     border-2 border-transparent
-                     text-koya-text-primary placeholder:text-koya-text-tertiary
-                     focus:outline-none focus:ring-2 focus:ring-koya-primary/20 focus:border-koya-primary/30
+            className="w-full px-4 py-3.5 rounded-2xl
+                     bg-purple-50/50 backdrop-blur-sm
+                     border-2 border-purple-200
+                     text-gray-900 placeholder:text-gray-400
+                     focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500
                      transition-all duration-200 resize-none"
           />
-          <div className="absolute bottom-3 right-4 text-xs text-koya-text-tertiary">
+          <div className="absolute bottom-3 right-4 text-xs text-gray-500 bg-white/80 px-2 py-1 rounded-lg">
             {wordCount}/{maxWords} words
           </div>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="space-y-6 pt-6">
+      <div className="space-y-6 pt-6 max-w-md mx-auto w-full">
         <Button
           variant="primary"
           size="lg"
@@ -153,7 +156,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
         <div className="flex items-center justify-center gap-6">
           <button
             onClick={onSkip}
-            className="text-koya-text-primary font-medium hover:text-koya-primary transition-colors"
+            className="text-gray-500 font-medium hover:text-gray-700 transition-colors"
           >
             SKIP
           </button>
@@ -162,10 +165,10 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
             {Array.from({ length: totalSteps }).map((_, index) => (
               <div
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                className={`h-2 rounded-full transition-all duration-200 ${
                   index === currentStep - 1
-                    ? 'bg-koya-primary w-3'
-                    : 'bg-koya-text-tertiary/30'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-8'
+                    : 'bg-gray-300 w-2'
                 }`}
               />
             ))}
@@ -173,7 +176,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
 
           <button
             onClick={onNext}
-            className="text-koya-text-primary font-medium hover:text-koya-primary transition-colors"
+            className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
           >
             NEXT
           </button>

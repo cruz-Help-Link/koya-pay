@@ -14,30 +14,41 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
   totalSteps = 7,
 }) => {
   return (
-    <div className="flex flex-col min-h-screen px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex flex-col px-6 py-8">
       {/* Header */}
       <div className="mb-12">
         <div className="flex items-center justify-center mb-6">
-          <div className="w-16 h-16 bg-koya-primary rounded-2xl flex items-center justify-center shadow-koya">
-            <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-30"></div>
+            <div className="relative w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl flex items-center justify-center shadow-xl">
+              <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
           </div>
         </div>
 
-        <div className="text-left space-y-1">
-          <h1 className="text-2xl font-bold text-koya-text-primary">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-bold text-gray-900">
             Owner's Verification
           </h1>
+          <p className="text-gray-600">Let's verify your business ownership</p>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 flex items-center justify-center">
-        <h2 className="text-2xl font-bold text-koya-text-primary text-center px-4">
-          Verify owner and business
-        </h2>
+        <div className="text-center max-w-md space-y-6">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-purple-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Verify owner and business
+            </h2>
+            <p className="text-gray-600">
+              Complete a quick verification process to unlock all features and higher transaction limits
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Action Button */}
@@ -48,14 +59,14 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
           fullWidth
           onClick={onStart}
         >
-          Start
+          Start Verification
         </Button>
 
         {/* Progress Indicator */}
         <div className="flex items-center justify-center gap-6">
           <button
             onClick={onSkip}
-            className="text-koya-text-primary font-medium hover:text-koya-primary transition-colors"
+            className="text-gray-500 font-medium hover:text-gray-700 transition-colors"
           >
             SKIP
           </button>
@@ -65,10 +76,10 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
             {Array.from({ length: totalSteps }).map((_, index) => (
               <div
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                className={`h-2 rounded-full transition-all duration-200 ${
                   index === currentStep - 1
-                    ? 'bg-koya-primary w-3'
-                    : 'bg-koya-text-tertiary/30'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-8'
+                    : 'bg-gray-300 w-2'
                 }`}
               />
             ))}
@@ -76,7 +87,7 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
 
           <button
             onClick={onStart}
-            className="text-koya-text-primary font-medium hover:text-koya-primary transition-colors"
+            className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
           >
             NEXT
           </button>
