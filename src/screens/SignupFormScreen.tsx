@@ -133,7 +133,7 @@ export const SignupFormScreen: React.FC = () => {
 
               <div>
                 <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 z-10">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#c9b8ff] z-10">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
@@ -141,9 +141,9 @@ export const SignupFormScreen: React.FC = () => {
                   <select
                     value={formData.gender}
                     onChange={handleChange('gender')}
-                    className={`w-full pl-12 pr-4 py-3.5 rounded-2xl bg-purple-50/50 backdrop-blur-sm border-2 ${
-                      errors.gender ? 'border-red-500' : 'border-purple-200'
-                    } text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 appearance-none`}
+                    className={`w-full pl-12 pr-4 py-3.5 rounded-2xl bg-[#e5deff]/50 backdrop-blur-sm border-2 ${
+                      errors.gender ? 'border-red-500' : 'border-[#c9b8ff]'
+                    } text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#AE92FF]/20 focus:border-[#AE92FF] transition-all duration-200 appearance-none`}
                   >
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
@@ -151,7 +151,7 @@ export const SignupFormScreen: React.FC = () => {
                     <option value="other">Other</option>
                     <option value="prefer-not-to-say">Prefer not to say</option>
                   </select>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-400 pointer-events-none">
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[#c9b8ff] pointer-events-none">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
@@ -292,7 +292,7 @@ export const SignupFormScreen: React.FC = () => {
                 {errors.confirmPassword && <p className="text-red-500 text-xs mt-1 ml-1">{errors.confirmPassword}</p>}
               </div>
 
-              <div className="bg-purple-50 border border-purple-200 rounded-xl p-3 text-sm text-gray-600">
+              <div className="bg-[#e5deff] border border-[#c9b8ff] rounded-xl p-3 text-sm text-gray-600">
                 <p className="font-medium text-gray-900 mb-1">Password must contain:</p>
                 <ul className="space-y-1 text-xs">
                   <li className={formData.password.length >= 8 ? 'text-green-600' : ''}>• At least 8 characters</li>
@@ -310,15 +310,15 @@ export const SignupFormScreen: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center justify-center px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-purple-100">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-[#c9b8ff]">
           {/* Header */}
           <div className="text-center">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={handleBack}
-                className="p-2 rounded-xl hover:bg-purple-50 transition-colors"
+                className="p-2 rounded-xl hover:bg-[#e5deff] transition-colors"
               >
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -339,7 +339,7 @@ export const SignupFormScreen: React.FC = () => {
           {/* Action Button */}
           <button
             onClick={handleNext}
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full bg-gradient-to-r from-[#221144] to-[#AE92FF] hover:from-[#1a0d33] hover:to-[#9e7ff0] text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
           >
             {currentStep === totalSteps ? 'Complete' : 'Next'}
           </button>
@@ -352,12 +352,12 @@ export const SignupFormScreen: React.FC = () => {
                 <div
                   key={index}
                   className={`h-2 rounded-full transition-all ${
-                    index + 1 === currentStep ? 'bg-purple-600 w-8' : index + 1 < currentStep ? 'bg-purple-400 w-2' : 'bg-gray-300 w-2'
+                    index + 1 === currentStep ? 'bg-[#221144] w-8' : index + 1 < currentStep ? 'bg-[#AE92FF] w-2' : 'bg-gray-300 w-2'
                   }`}
                 />
               ))}
             </div>
-            <button onClick={handleNext} className="text-purple-600 hover:text-purple-700 font-medium">NEXT</button>
+            <button onClick={handleNext} className="text-[#221144] hover:text-[#1a0d33] font-medium">NEXT</button>
           </div>
         </div>
       </div>

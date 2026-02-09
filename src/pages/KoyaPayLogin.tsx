@@ -5,11 +5,11 @@ const KoyaPayLogin: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-[#c9b8ff] to-[#AE92FF] flex items-center justify-center p-4">
       {/* Container - responsive max width */}
       <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
         {/* Phone frame simulation for larger screens */}
-        <div className="bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 rounded-3xl lg:rounded-[3rem] overflow-hidden">
+        <div className="bg-gradient-to-br from-[#e5deff] via-[#c9b8ff] to-[#AE92FF] rounded-3xl lg:rounded-[3rem] overflow-hidden">
           {/* Main content */}
           <div className="px-8 py-12 lg:px-8 lg:py-10 xl:px-16 xl:py-20 flex flex-col items-center justify-center min-h-[600px] lg:min-h-[700px]">
             {/* Logo */}
@@ -41,7 +41,7 @@ const KoyaPayLogin: React.FC = () => {
 
               {/* Sign Up Button */}
               <button
-                className="w-full py-4 lg:py-5 px-6 bg-gradient-to-r from-indigo-900 to-purple-900 text-white font-semibold rounded-full hover:from-indigo-800 hover:to-purple-800 transition-all duration-200 text-base lg:text-lg shadow-lg hover:shadow-xl"
+                className="w-full py-4 lg:py-5 px-6 bg-gradient-to-r from-[#221144] to-[#1a0d33] text-white font-semibold rounded-full hover:from-[#1a0d33] hover:to-[#110822] transition-all duration-200 text-base lg:text-lg shadow-lg hover:shadow-xl"
                 onClick={() => navigate('/signup')}
               >
                 Sign UP

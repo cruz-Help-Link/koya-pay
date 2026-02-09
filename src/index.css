@@ -108,9 +108,16 @@
 :root {
   --font-aeonik: 'Aeonik Trial', 'Helvetica Neue', Arial, sans-serif;
   --font-outfit: 'Outfit', system-ui, -apple-system, sans-serif;
-  --space-violet-dark: #22144F;
+  --space-violet-dark: #221144;
   --soft-violet: #AE92FF;
   --pure-white: #FFFFFF;
+  
+  /* Custom brand colors */
+  --koyapay-primary: #221144;
+  --koyapay-accent: #AE92FF;
+  --koyapay-primary-light: #352266;
+  --koyapay-accent-light: #c9b8ff;
+  --koyapay-accent-lighter: #e5deff;
 }
 
 /* Aeonik (Trial) */

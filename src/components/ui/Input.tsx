@@ -98,7 +98,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#c9b8ff]">
               {leftIcon}
             </div>
           )}
@@ -107,14 +107,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             className={`
               w-full px-4 py-3.5 rounded-2xl
-              bg-purple-50/50 backdrop-blur-sm
+              bg-[#e5deff]/50 backdrop-blur-sm
               border-2 transition-all duration-200
               text-gray-900 placeholder:text-gray-400
-              focus:outline-none focus:ring-2 focus:ring-purple-500/20
+              focus:outline-none focus:ring-2 focus:ring-[#AE92FF]/20
               disabled:opacity-50 disabled:cursor-not-allowed
               ${hasError 
                 ? 'border-red-400 focus:border-red-500' 
-                : 'border-purple-200 focus:border-purple-500'
+                : 'border-[#c9b8ff] focus:border-[#AE92FF]'
               }
               ${leftIcon ? 'pl-12' : ''}
               ${rightIcon ? 'pr-12' : ''}
@@ -124,7 +124,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
           
           {rightIcon && (
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-400">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[#c9b8ff]">
               {rightIcon}
             </div>
           )}

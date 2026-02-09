@@ -47,13 +47,24 @@ export const SignupMethodScreen: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center justify-center px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-purple-100">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-[#c9b8ff]">
           {/* Header */}
           <div className="text-center space-y-4">
-            <div className="flex justify-center mb-4">
-              <img src='/src/assets/logo/primary-dark.png' alt="KoyaPay" className='w-48 h-24 object-contain' />
+            <div className="flex justify-between items-center mb-4">
+              <button
+                onClick={() => navigate('/welcome')}
+                className="p-2 rounded-xl hover:bg-[#e5deff] transition-colors"
+              >
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <div className="flex-1 flex justify-center">
+                <img src='/src/assets/logo/primary-dark.png' alt="KoyaPay" className='w-48 h-24 object-contain' />
+              </div>
+              <div className="w-10"></div>
             </div>
             <h1 className="text-2xl font-bold text-gray-900">Welcome to KoyaPay</h1>
             <p className="text-sm text-gray-600">Choose your preferred signup method</p>
@@ -67,11 +78,11 @@ export const SignupMethodScreen: React.FC = () => {
                 onClick={() => setSelectedMethod(method.id)}
                 className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl border-2 transition-all duration-200 ${
                   selectedMethod === method.id
-                    ? 'border-purple-600 bg-purple-50 shadow-lg scale-[1.02]'
-                    : 'border-gray-200 bg-white hover:border-purple-300 hover:shadow-md'
+                    ? 'border-[#221144] bg-[#e5deff] shadow-lg scale-[1.02]'
+                    : 'border-gray-200 bg-white hover:border-[#c9b8ff] hover:shadow-md'
                 }`}
               >
-                <div className={`transition-colors ${selectedMethod === method.id ? 'text-purple-600' : 'text-gray-400'}`}>
+                <div className={`transition-colors ${selectedMethod === method.id ? 'text-[#221144]' : 'text-gray-400'}`}>
                   {method.icon}
                 </div>
                 <span className="flex-1 text-left font-medium text-gray-800">
@@ -80,7 +91,7 @@ export const SignupMethodScreen: React.FC = () => {
                 <div
                   className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
                     selectedMethod === method.id
-                      ? 'border-purple-600 bg-purple-600'
+                      ? 'border-[#221144] bg-[#221144]'
                       : 'border-gray-300'
                   }`}
                 >
@@ -102,7 +113,7 @@ export const SignupMethodScreen: React.FC = () => {
           <button
             disabled={!selectedMethod}
             onClick={handleContinue}
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full bg-gradient-to-r from-[#221144] to-[#AE92FF] hover:from-[#1a0d33] hover:to-[#9e7ff0] disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
           >
             Continue
           </button>
@@ -115,12 +126,12 @@ export const SignupMethodScreen: React.FC = () => {
                 <div
                   key={dot}
                   className={`h-2 rounded-full transition-all ${
-                    dot === 0 ? 'bg-purple-600 w-8' : 'bg-gray-300 w-2'
+                    dot === 0 ? 'bg-[#221144] w-8' : 'bg-gray-300 w-2'
                   }`}
                 />
               ))}
             </div>
-            <button onClick={handleContinue} className="text-purple-600 hover:text-purple-700 font-medium">NEXT</button>
+            <button onClick={handleContinue} className="text-[#221144] hover:text-[#1a0d33] font-medium">NEXT</button>
           </div>
         </div>
       </div>

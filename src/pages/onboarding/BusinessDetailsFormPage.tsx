@@ -46,13 +46,23 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex flex-col px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex flex-col px-6 py-8">
+      {/* Back Arrow */}
+      <button
+        onClick={onSkip}
+        className="absolute top-6 left-6 p-2 rounded-xl hover:bg-[#e5deff] transition-colors"
+      >
+        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
       {/* Header */}
       <div className="mb-6">
         <div className="flex items-center justify-center mb-4">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-lg opacity-30"></div>
-            <div className="relative w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#221144] to-[#AE92FF] rounded-2xl blur-lg opacity-30"></div>
+            <div className="relative w-14 h-14 bg-gradient-to-r from-[#221144] to-[#AE92FF] rounded-2xl flex items-center justify-center shadow-lg">
               <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                   d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\" />
@@ -129,10 +139,10 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
             onChange={handleChange('description')}
             rows={4}
             className="w-full px-4 py-3.5 rounded-2xl
-                     bg-purple-50/50 backdrop-blur-sm
-                     border-2 border-purple-200
+                     bg-[#e5deff]/50 backdrop-blur-sm
+                     border-2 border-[#c9b8ff]
                      text-gray-900 placeholder:text-gray-400
-                     focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500
+                     focus:outline-none focus:ring-2 focus:ring-[#AE92FF]/20 focus:border-[#AE92FF]
                      transition-all duration-200 resize-none"
           />
           <div className="absolute bottom-3 right-4 text-xs text-gray-500 bg-white/80 px-2 py-1 rounded-lg">
@@ -167,7 +177,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
                 key={index}
                 className={`h-2 rounded-full transition-all duration-200 ${
                   index === currentStep - 1
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-8'
+                    ? 'bg-gradient-to-r from-[#221144] to-[#AE92FF] w-8'
                     : 'bg-gray-300 w-2'
                 }`}
               />
@@ -176,7 +186,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
 
           <button
             onClick={onNext}
-            className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
+            className="text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
           >
             NEXT
           </button>

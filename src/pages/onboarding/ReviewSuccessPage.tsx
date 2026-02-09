@@ -19,6 +19,16 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
 }) => {
   return (
     <div className="flex flex-col min-h-screen px-6 py-8">
+      {/* Back Arrow */}
+      <button
+        onClick={onSkip}
+        className="absolute top-6 left-6 p-2 rounded-xl hover:bg-[#e5deff] transition-colors"
+      >
+        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-center mb-4">
