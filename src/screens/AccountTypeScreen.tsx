@@ -11,12 +11,17 @@ export const AccountTypeScreen: React.FC = () => {
   const navigate = useNavigate();
   const [selectedType, setSelectedType] = useState<AccountType>(null);
 
+  const handleAccountTypeSelect = (type: 'starter' | 'registered') => {
+    setSelectedType(type);
+    navigate('/signup/business-mode');
+  };
+
   return (
     <Container overlayIntensity="medium">
       <div className="flex flex-col min-h-screen px-6 pt-24 pb-12">
         {/* Back Arrow */}
         <button
-          onClick={() => navigate('/signup/verify-email')}
+          onClick={() => navigate('/welcome')}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
           <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -24,15 +29,16 @@ export const AccountTypeScreen: React.FC = () => {
           </svg>
         </button>
 
-        {/* Logo */}
-        <div className="mb-6 lg:mb-8">
-              <div className=" flex items-center justify-center">
-                <img src='/src/assets/logo/logo.png' className='w-40 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28' />
-              </div>
-            </div>
+        {/* Logo - using the alternative logo design */}
+        <div className=" flex flex-col items-center 0">
+          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <div className="text-2xl font-semibold mt-6 ">
+            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
+          </div>
+        </div>
 
         {/* Header */}
-        <div className="mb-12">
+        <div className="mt-12 mb-6">
           <h1 className="text-2xl font-bold text-[#1a1a1a] mb-1">Create Account</h1>
           <p className="text-sm text-gray-600">Let's create your account</p>
         </div>
@@ -40,21 +46,21 @@ export const AccountTypeScreen: React.FC = () => {
         {/* Account Type Selection */}
         <div className="space-y-4 mb-auto">
           <button
-            onClick={() => setSelectedType('starter')}
+            onClick={() => handleAccountTypeSelect('starter')}
             className={`w-full px-6 py-5 rounded-2xl border-2 transition-all font-semibold text-[#1a1a1a] ${
               selectedType === 'starter'
-                ? 'border-[#2D1B69] bg-[#2D1B69]/5'
-                : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#2D1B69]/50'
+                ? 'border-[#221144] bg-[#221144]/5'
+                : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#221144]/50'
             }`}
           >
             Starter Business
           </button>
           <button
-            onClick={() => setSelectedType('registered')}
+            onClick={() => handleAccountTypeSelect('registered')}
             className={`w-full px-6 py-5 rounded-2xl border-2 transition-all font-semibold text-[#1a1a1a] ${
               selectedType === 'registered'
-                ? 'border-[#2D1B69] bg-[#2D1B69]/5'
-                : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#2D1B69]/50'
+                ? 'border-[#221144] bg-[#221144]/5'
+                : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#221144]/50'
             }`}
           >
             Registered Business
@@ -75,7 +81,10 @@ export const AccountTypeScreen: React.FC = () => {
           </div>
           <p className="text-center text-sm text-[#1a1a1a]">
             Already have an account?{' '}
-            <button className="text-[#2D1B69] font-semibold hover:underline">
+            <button 
+              onClick={() => navigate('/welcome')}
+              className="text-[#221144] font-semibold hover:underline"
+            >
               Login Account
             </button>
           </p>

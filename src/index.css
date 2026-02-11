@@ -107,7 +107,7 @@
 
 :root {
   --font-aeonik: 'Aeonik Trial', 'Helvetica Neue', Arial, sans-serif;
-  --font-outfit: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-outfit: 'Outfit', 'Segoe UI Emoji', 'Segoe UI Symbol', system-ui, -apple-system, sans-serif;
   --space-violet-dark: #221144;
   --soft-violet: #AE92FF;
   --pure-white: #FFFFFF;
@@ -146,7 +146,7 @@
   }
 
   body {
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', 'Segoe UI Emoji', 'Segoe UI Symbol', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -175,5 +175,23 @@
   .input-focus-ring:focus {
     ring: 2px;
     ring-color: rgba(174, 146, 255, 0.5);
+  }
+}
+
+/* Hide home indicator */
+body {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+html {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Remove any safe area insets */
+@supports (padding: max(0px)) {
+  body {
+    padding-bottom: 0 !important;
   }
 }

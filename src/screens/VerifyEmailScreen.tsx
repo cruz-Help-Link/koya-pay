@@ -46,7 +46,7 @@ export const VerifyEmailScreen: React.FC = () => {
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
-          onClick={() => navigate('/signup/details')}
+          onClick={() => navigate('/signup/register')}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
           <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,25 +54,22 @@ export const VerifyEmailScreen: React.FC = () => {
           </svg>
         </button>
 
-        {/* Logo */}
-        <div className="mb-6 lg:mb-8">
-              <div className=" flex items-center justify-center">
-                <img src='/src/assets/logo/logo.png' className='w-40 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28' />
-              </div>
-            </div>
+        {/* Logo - using the alternative logo design */}
+        <div className="flex flex-col items-center">
+          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <div className="text-2xl font-semibold mt-6">
+            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
+          </div>
+        </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mt-12 mb-6">
           <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Verify Your Email</h1>
           <p className="text-sm text-gray-600 leading-relaxed">
             To verify your account, enter 6 digit OTP code
             <br />
             that was sent to your Email
           </p>
-          <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-xl p-3 text-xs text-gray-600">
-            <p className="font-medium text-yellow-800 mb-1">⚠️ Demo Mode</p>
-            <p>No actual OTP is sent. This is a UI demo without backend integration. Enter any 6 digits to continue.</p>
-          </div>
         </div>
 
         {/* OTP Input */}
@@ -87,7 +84,7 @@ export const VerifyEmailScreen: React.FC = () => {
               value={digit}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className="w-14 h-14 text-center text-2xl font-semibold bg-white/90 border-2 border-[#C9B8FF]/60 rounded-2xl focus:outline-none focus:border-[#2D1B69] transition-colors"
+              className="w-14 h-14 text-center text-2xl font-semibold bg-white/90 border-2 border-[#C9B8FF]/60 rounded-2xl focus:outline-none focus:border-[#221144] transition-colors"
             />
           ))}
         </div>
@@ -105,7 +102,7 @@ export const VerifyEmailScreen: React.FC = () => {
           <button
             onClick={handleResend}
             disabled={timer > 0}
-            className="text-sm text-[#1a1a1a] font-semibold hover:text-[#2D1B69] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="text-sm text-[#1a1a1a] font-semibold hover:text-[#221144] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Resend Code
           </button>
@@ -117,16 +114,10 @@ export const VerifyEmailScreen: React.FC = () => {
             variant="primary"
             fullWidth
             disabled={otp.some((digit) => !digit)}
-            onClick={() => navigate('/signup/account-type')}
+            onClick={() => navigate('/onboarding')}
           >
             Verify
           </Button>
-          <button 
-            onClick={() => navigate('/signup/details')}
-            className="w-full text-center py-2 text-[#1a1a1a] font-semibold hover:text-[#2D1B69] transition-colors"
-          >
-            Back
-          </button>
         </div>
       </div>
     </Container>

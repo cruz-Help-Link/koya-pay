@@ -5,27 +5,23 @@ const KoyaPayLogin: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-[#c9b8ff] to-[#AE92FF] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       {/* Container - responsive max width */}
       <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
         {/* Phone frame simulation for larger screens */}
-        <div className="bg-gradient-to-br from-[#e5deff] via-[#c9b8ff] to-[#AE92FF] rounded-3xl lg:rounded-[3rem] overflow-hidden">
+        <div className="bg-white rounded-3xl lg:rounded-[3rem] overflow-hidden">
           {/* Main content */}
           <div className="px-8 py-12 lg:px-8 lg:py-10 xl:px-16 xl:py-20 flex flex-col items-center justify-center min-h-[600px] lg:min-h-[700px]">
             {/* Logo */}
-            <div className="mb-6 lg:mb-8">
-              <div className=" flex items-center justify-center">
-                <img src='/src/assets/logo/logo.png' className='w-40 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28' />
-              </div>
-            </div>
-
-            {/* Brand name */}
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-900 mb-4 lg:mb-6">
-              KoyaPay
-            </h1>
+            <div className=" flex flex-col items-center 0">
+          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <div className="text-2xl font-semibold mt-6 ">
+            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
+          </div>
+        </div>
 
             {/* Tagline */}
-            <p className="text-lg lg:text-xl xl:text-2xl text-gray-800 text-center mb-12 lg:mb-16 xl:mb-20 max-w-xs lg:max-w-sm">
+            <p className="text-lg lg:text-xl xl:text-2xl text-gray-800 text-center mt-12 lg:mb-16 xl:mb-20 max-w-xs lg:max-w-sm">
               Manage your money with KoyaPay
             </p>
 
@@ -47,11 +43,6 @@ const KoyaPayLogin: React.FC = () => {
                 Sign UP
               </button>
             </div>
-          </div>
-
-          {/* Bottom indicator (hidden on mobile, shown on larger screens) */}
-          <div className="hidden lg:block pb-4">
-            <div className="w-32 h-1.5 bg-gray-800 rounded-full mx-auto"></div>
           </div>
         </div>
       </div>

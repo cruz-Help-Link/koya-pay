@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import {
-  SignupMethodScreen,
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
@@ -19,7 +18,7 @@ import KoyaPayLogin from '../pages/KoyaPayLogin';
 import OnboardingLayout from '../layouts/OnboardingLayout';
 import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
-import { SignupFormScreen } from '../screens/SignupFormScreen';
+import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 
 export const router = createBrowserRouter([
   {
@@ -36,15 +35,15 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SignupMethodScreen />,
-      },
-      {
-        path: 'details',
-        element: <SignupFormScreen />,
+        element: <Navigate to="/signup/account-type" replace />,
       },
       {
         path: 'account-type',
         element: <AccountTypeScreen />,
+      },
+      {
+        path: 'business-mode',
+        element: <BusinessModeScreen />,
       },
       {
         path: 'register',

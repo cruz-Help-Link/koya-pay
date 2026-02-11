@@ -15,29 +15,18 @@ export const WelcomeScreen: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-md">
-        {/* Logo Section */}
-        <div className="text-center mb-16 space-y-6">
-          <div className="flex justify-center mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#221144] to-[#AE92FF] rounded-3xl blur-2xl opacity-30"></div>
-              <div className="relative bg-white p-6 rounded-3xl shadow-2xl">
-                <img 
-                  src='/src/assets/logo/primary-dark.png' 
-                  alt="KoyaPay Logo"
-                  className='w-32 h-16 object-contain'
-                />
-              </div>
-            </div>
+        {/* Logo Section - EXACT SAME CODE AS ACCOUNT TYPE PAGE */}
+        <div className="flex flex-col items-center mb-16">
+          <img 
+            src='/src/assets/logo/koyapay-logo.png' 
+            className='w-20 h-20 object-contain -mb-8' 
+            alt="KoyaPay" 
+          />
+          <div className="text-2xl font-semibold mt-6">
+            <span className="text-gray-400">Koya</span>
+            <span className="text-black">Pay</span>
           </div>
-          
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-gray-900">
-              KoyaPay
-            </h1>
-            <p className="text-lg text-gray-600">
-              Manage your money with KoyaPay
-            </p>
-          </div>
+          <p className="text-gray-600 mt-4 text-center">Manage your money with KoyaPay</p>
         </div>
 
         {/* CTA Buttons */}
