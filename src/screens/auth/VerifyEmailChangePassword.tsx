@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { Button } from '../components/ui/Button';
-import { Container } from '../components/ui/Container';
-import LoadingBar from './LoadingBar';
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/ui/Button";
+import { Container } from "../../components/ui/Container";
+import LoadingBar from "../LoadingBar";
+import { ChevronLeft } from "lucide-react";
 
-export const VerifyEmailScreen: React.FC = () => {
+export const VerifyEmailChangePassword: React.FC = () => {
   const navigate = useNavigate();
-  const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
+  const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(59);
   const [isVerifying, setIsVerifying] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -20,8 +20,6 @@ export const VerifyEmailScreen: React.FC = () => {
   }, []);
 
   const handleChange = (index: number, value: string) => {
-    // Only allow digits
-    if (value && !/^\d$/.test(value)) return;
     if (value.length > 1) return;
 
     const newOtp = [...otp];
@@ -34,14 +32,14 @@ export const VerifyEmailScreen: React.FC = () => {
   };
 
   const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
   };
 
   const handleResend = () => {
     setTimer(59);
-    setOtp(['', '', '', '', '', '']);
+    setOtp(["", "", "", "", "", ""]);
   };
 
   const handleVerify = () => {
@@ -49,7 +47,12 @@ export const VerifyEmailScreen: React.FC = () => {
   };
 
   if (isVerifying) {
-    return <LoadingBar duration={3000} onComplete={() => navigate('/onboarding')} />;
+    return (
+      <LoadingBar
+        duration={3000}
+        onComplete={() => navigate("/change-password")}
+      />
+    );
   }
 
   return (
@@ -57,23 +60,31 @@ export const VerifyEmailScreen: React.FC = () => {
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
-          onClick={() => navigate('/signup/register')}
+          onClick={() => navigate("/forgot-password")}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <ArrowLeft className="w-6 h-6 text-gray-600" />
+          <ChevronLeft  className="w-5 h-5" />
+
         </button>
 
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <img
+            src="/src/assets/logo/koyapay-logo.png"
+            className="w-20 h-20 object-contain -mb-8"
+            alt="KoyaPay"
+          />
           <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
+            <span className="text-gray-400">Koya</span>
+            <span className="text-black">Pay</span>
           </div>
         </div>
 
         {/* Header */}
         <div className="text-center mt-12 mb-6">
-          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Verify Your Email</h1>
+          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">
+            Verify Your Email
+          </h1>
           <p className="text-sm text-gray-600 leading-relaxed">
             To verify your account, enter 6 digit OTP code
             <br />
@@ -101,7 +112,7 @@ export const VerifyEmailScreen: React.FC = () => {
         {/* Timer */}
         <div className="text-center mb-2">
           <p className="text-2xl font-bold text-[#1a1a1a]">
-            00:{timer.toString().padStart(2, '0')}
+            00:{timer.toString().padStart(2, "0")}
           </p>
         </div>
 

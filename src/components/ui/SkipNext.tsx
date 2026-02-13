@@ -1,43 +1,52 @@
-// components/ui/SkipNext.tsx
-import React from 'react';
+import React from "react";
 
-interface SkipNextProps {
-  onSkip?: () => void;
-  onNext?: () => void;
-  currentStep?: number;
+interface StepNavigationProps {
   totalSteps?: number;
+  activeStep: number;
+  onSkip: () => void;
+  onNext: () => void;
+  skipLabel?: string;
+  nextLabel?: string;
+  activeColor?: string;
 }
 
-export const SkipNext: React.FC<SkipNextProps> = ({
+const StepNavigation: React.FC<StepNavigationProps> = ({
+  totalSteps = 5,
+  activeStep,
   onSkip,
   onNext,
-  currentStep = 0,
-  totalSteps = 6,
+  skipLabel = "SKIP",
+  nextLabel = "NEXT",
+  activeColor = "#221144",
 }) => {
   return (
-    <div className="flex items-center justify-between text-sm pt-6">
+    <div className="flex items-center justify-between text-sm pt-4">
       <button
         onClick={onSkip}
-        className="text-gray-600 hover:text-gray-800 font-medium transition-colors"
+        className="text-gray-500 hover:text-gray-700 font-medium"
       >
-        SKIP
+        {skipLabel}
       </button>
-      <div className="flex gap-1.5">
-        {Array.from({ length: totalSteps }).map((_, index) => (
+      <div className="flex gap-2">
+        {Array.from({ length: totalSteps }, (_, i) => (
           <div
-            key={index}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentStep ? 'bg-[#2D1B69]' : 'bg-gray-300'
+            key={i}
+            className={`h-2 rounded-full transition-all ${
+              i === activeStep ? "w-8" : "bg-gray-300 w-2"
             }`}
+            style={i === activeStep ? { backgroundColor: activeColor } : undefined}
           />
         ))}
       </div>
       <button
         onClick={onNext}
-        className="text-gray-800 hover:text-[#2D1B69] font-semibold transition-colors"
+        className="font-medium"
+        style={{ color: activeColor }}
       >
-        NEXT
+        {nextLabel}
       </button>
     </div>
   );
 };
+
+export default StepNavigation;
