@@ -68,7 +68,7 @@ export const RegisteredBusinessScreen: React.FC = () => {
   };
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
         {/* Back Arrow */}
         <button

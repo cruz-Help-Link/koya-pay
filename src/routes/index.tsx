@@ -1,9 +1,9 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import {
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
-} from '../connected/signup';
+} from "../connected/signup";
 import {
   OnboardingIntroPage,
   OwnerDetailsFormPage,
@@ -13,24 +13,45 @@ import {
   DocumentUploadPage,
   ReviewSuccessPage,
   OnboardingCompletePage,
-} from '../connected/onboarding';
-import KoyaPayLogin from '../pages/KoyaPayLogin';
-import OnboardingLayout from '../layouts/OnboardingLayout';
-import SignupLayout from '../layouts/SignupLayout';
-import { SplashScreen } from '../screens/SplashScreen';
-import { BusinessModeScreen } from '../screens/BusinessModeScreen';
+} from "../connected/onboarding";
+import KoyaPayLogin from "../pages/KoyaPayLogin";
+import OnboardingLayout from "../layouts/OnboardingLayout";
+import SignupLayout from "../layouts/SignupLayout";
+import { SplashScreen } from "../screens/SplashScreen";
+import { BusinessModeScreen } from "../screens/BusinessModeScreen";
+
+import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
+import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
+import { LoginScreen } from "../screens/auth/LoginScreen";
+import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <SplashScreen />,
   },
   {
-    path: '/welcome',
+    path: "/welcome",
     element: <KoyaPayLogin />,
   },
   {
-    path: '/signup',
+    path: "/login",
+    element: <LoginScreen />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordScreen />,
+  },
+  {
+    path: "/verify-reset-password",
+    element: <VerifyEmailChangePassword />,
+  },
+  {
+    path: "/create-new-password",
+    element: <CreateNewPasswordScreen />,
+  },
+  {
+    path: "/signup",
     element: <SignupLayout />,
     children: [
       {
@@ -38,25 +59,25 @@ export const router = createBrowserRouter([
         element: <Navigate to="/signup/account-type" replace />,
       },
       {
-        path: 'account-type',
+        path: "account-type",
         element: <AccountTypeScreen />,
       },
       {
-        path: 'business-mode',
+        path: "business-mode",
         element: <BusinessModeScreen />,
       },
       {
-        path: 'register',
+        path: "register",
         element: <RegisteredBusinessScreen />,
       },
       {
-        path: 'verify-email',
+        path: "verify-email",
         element: <VerifyEmailScreen />,
       },
     ],
   },
   {
-    path: '/onboarding',
+    path: "/onboarding",
     element: <OnboardingLayout />,
     children: [
       {
@@ -64,41 +85,41 @@ export const router = createBrowserRouter([
         element: <Navigate to="/onboarding/intro" replace />,
       },
       {
-        path: 'intro',
+        path: "intro",
         element: <OnboardingIntroPage />,
       },
       {
-        path: 'owner-details',
+        path: "owner-details",
         element: <OwnerDetailsFormPage />,
       },
       {
-        path: 'business-details',
+        path: "business-details",
         element: <BusinessDetailsFormPage />,
       },
       {
-        path: 'location-intro',
+        path: "location-intro",
         element: <BusinessLocationIntroPage />,
       },
       {
-        path: 'verification-method',
+        path: "verification-method",
         element: <VerificationMethodSelectionPage />,
       },
       {
-        path: 'document-upload',
+        path: "document-upload",
         element: <DocumentUploadPage />,
       },
       {
-        path: 'review',
+        path: "review",
         element: <ReviewSuccessPage />,
       },
       {
-        path: 'complete',
+        path: "complete",
         element: <OnboardingCompletePage />,
       },
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: <Navigate to="/" replace />,
   },
 ]);

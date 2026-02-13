@@ -1,26 +1,29 @@
 import React from 'react';
 
-type OverlayIntensity = 'light' | 'medium' | 'heavy';
+// type OverlayIntensity = 'light' | 'medium' | 'heavy';
 
 interface ContainerProps {
   children: React.ReactNode;
-  overlayIntensity?: OverlayIntensity;
+  // overlayIntensity?: OverlayIntensity;
   className?: string;
 }
 
-const overlayStyles: Record<OverlayIntensity, string> = {
-  light: 'bg-[#EDE7FF]/70',
-  medium: 'bg-[#E5DEFF]/85',
-  heavy: 'bg-[#DDD4FF]/92',
-};
+// const overlayStyles: Record<OverlayIntensity, string> = {
+//   light: 'bg-[#EDE7FF]/40',
+//   medium: 'bg-[#E5DEFF]/75',
+//   heavy: 'bg-[#DDD4FF]/82',
+// };
 
 export const Container: React.FC<ContainerProps> = ({
   children,
-  overlayIntensity = 'medium',
+  // overlayIntensity = 'heavy',
   className = '',
 }) => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-hidden "
+    style={{
+      backgroundColor: '[#E5DEFF]'
+    }}>
       {/* Background Layer - White */}
       <div className="absolute inset-0 bg-white">
         {/* Subtle geometric decoration overlay */}
