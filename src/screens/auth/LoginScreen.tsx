@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import LoadingBar from "../LoadingBar";
 import { Button, Input } from "../../components/ui";
 import { Eye, EyeOff, Lock } from "lucide-react";
-import { Container } from "../../components/ui/Container";
-import Logo from "../../components/Logo";
 
 export const LoginScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -53,7 +51,7 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <Container>
-   
+
       <div className="w-full max-w-md">
         <div className="backdrop-blur-sm shadow-xl p-8 space-y-6">
           {/* Logo */}
@@ -134,12 +132,10 @@ export const LoginScreen: React.FC = () => {
           {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600">
             Don't have an account?{" "}
-            <button
               onClick={() => navigate("/signup")}
               className="text-[#221144] font-semibold hover:text-[#1a0d33] transition-colors"
             >
               Sign Up
-            </button>
           </p>
         </div>
       </div>
