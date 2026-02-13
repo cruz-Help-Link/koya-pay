@@ -18,7 +18,7 @@ export const Container: React.FC<ContainerProps> = ({
         src={bgDecoration}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
-      /> 
+      />
 
       {/* Purple Glow Decorations */}
       <div className="absolute inset-0 opacity-30">
@@ -26,13 +26,18 @@ export const Container: React.FC<ContainerProps> = ({
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#AE92FF] rounded-full blur-3xl" />
       </div>
 
+      {/* Brand Overlay Layer */}
+      <div
+        className={`absolute inset-0 mix-blend-multiply `}
+        aria-hidden="true"
+      />
+
       {/* Content Layer */}
       <div className={`relative z-10 flex min-h-screen items-center justify-center p-4 ${className}`}>
         <div className="w-full max-w-md">
           {children}
         </div>
       </div>
-
     </div>
   );
 };
