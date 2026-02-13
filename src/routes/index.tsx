@@ -26,6 +26,17 @@ import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
+} from "../connected/onboarding";
+import KoyaPayLogin from "../pages/KoyaPayLogin";
+import OnboardingLayout from "../layouts/OnboardingLayout";
+import SignupLayout from "../layouts/SignupLayout";
+import { SplashScreen } from "../screens/SplashScreen";
+import { BusinessModeScreen } from "../screens/BusinessModeScreen";
+
+import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
+import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
+import { LoginScreen } from "../screens/auth/LoginScreen";
+import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +48,23 @@ export const router = createBrowserRouter([
     element: <KoyaPayLogin />,
   },
   {
-    path: '/signup',
+    path: "/login",
+    element: <LoginScreen />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordScreen />,
+  },
+  {
+    path: "/verify-reset-password",
+    element: <VerifyEmailChangePassword />,
+  },
+  {
+    path: "/create-new-password",
+    element: <CreateNewPasswordScreen />,
+  },
+  {
+    path: "/signup",
     element: <SignupLayout />,
     children: [
       {
@@ -61,7 +88,7 @@ export const router = createBrowserRouter([
         element: <RegisteredBusinessScreen />,
       },
       {
-        path: 'verify-email',
+        path: "verify-email",
         element: <VerifyEmailScreen />,
       },
       {
@@ -71,7 +98,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/onboarding',
+    path: "/onboarding",
     element: <OnboardingLayout />,
     children: [
       {
@@ -91,23 +118,23 @@ export const router = createBrowserRouter([
         element: <BusinessDetailsFormPage />,
       },
       {
-        path: 'location-intro',
+        path: "location-intro",
         element: <BusinessLocationIntroPage />,
       },
       {
-        path: 'verification-method',
+        path: "verification-method",
         element: <VerificationMethodSelectionPage />,
       },
       {
-        path: 'document-upload',
+        path: "document-upload",
         element: <DocumentUploadPage />,
       },
       {
-        path: 'review',
+        path: "review",
         element: <ReviewSuccessPage />,
       },
       {
-        path: 'complete',
+        path: "complete",
         element: <OnboardingCompletePage />,
       },
       {
@@ -133,7 +160,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: <Navigate to="/" replace />,
   },
 ]);
