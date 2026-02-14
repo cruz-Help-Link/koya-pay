@@ -35,11 +35,11 @@ const LoadingBar: React.FC<LoadingBarProps> = ({
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
       <div
-        className="w-64 rounded-full overflow-hidden bg-gray-200"
-        style={{ height }}
+        className="rounded-full overflow-hidden bg-gray-200"
+        style={{ width: 300, height }}
       >
         <div
-          className="h-full rounded-full transition-none"
+          className="h-full rounded-full transition-all duration-75 ease-linear"
           style={{
             width: `${progress}%`,
             backgroundColor: color,
