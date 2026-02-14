@@ -5,3 +5,4 @@ export { Card } from './Card';
 export { OTPInput } from './OTPInput';
 export { FileUpload } from './FileUpload';
 export { ImageEditor } from './ImageEditor';
+export { SkipNavigation } from './StepNavigation';

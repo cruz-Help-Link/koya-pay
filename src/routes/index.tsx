@@ -4,7 +4,6 @@ import {
   RegisteredBusinessScreen,
   VerifyEmailScreen,
 } from '../connected/auth';
-} from "../connected/signup";
 import {
   OnboardingIntroPage,
   OwnerDetailsFormPage,
@@ -33,7 +32,6 @@ import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
 import Dashboard from '../pages/Dashboard';
 import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
 import DashboardLayout from '../layouts/DashboardLayout';
-} from "../connected/onboarding";
 
 
 export const router = createBrowserRouter([
@@ -48,7 +46,6 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginUserScreen />,
-    element: <LoginScreen />,
   },
   {
     path: "/forgot-password",
@@ -84,7 +81,6 @@ export const router = createBrowserRouter([
       },
       {
         path: 'register',
-        path: "register",
         element: <RegisteredBusinessScreen />,
       },
       {
