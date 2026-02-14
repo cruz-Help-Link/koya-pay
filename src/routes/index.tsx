@@ -37,6 +37,7 @@ import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePass
 import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
 import { LoginScreen } from "../screens/auth/LoginScreen";
 import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
+import { StarterBusinessPage } from "../connected/onboarding/StarterBusinessPage";
 
 export const router = createBrowserRouter([
   {
