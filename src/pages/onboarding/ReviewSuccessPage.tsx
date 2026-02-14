@@ -19,7 +19,7 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
   monthlyLimit = '2 Million per month',
 }) => {
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
