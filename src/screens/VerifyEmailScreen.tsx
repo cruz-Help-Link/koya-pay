@@ -55,6 +55,7 @@ export const VerifyEmailScreen: React.FC = () => {
   return (
     <Container>
       <div className="flex flex-col min-h-screen px-6 pt-12 pb-12">
+      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
           onClick={() => navigate('/signup/register')}
@@ -66,7 +67,6 @@ export const VerifyEmailScreen: React.FC = () => {
         </button>
 
                <Logo />
-
 
         {/* Header */}
         <div className="text-center mt-12 mb-6">

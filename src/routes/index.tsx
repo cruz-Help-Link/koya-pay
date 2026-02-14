@@ -1,9 +1,10 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import {
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
 } from '../connected/auth';
+} from "../connected/signup";
 import {
   OnboardingIntroPage,
   OwnerDetailsFormPage,
@@ -32,19 +33,22 @@ import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
 import Dashboard from '../pages/Dashboard';
 import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
 import DashboardLayout from '../layouts/DashboardLayout';
+} from "../connected/onboarding";
+
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <SplashScreen />,
   },
   {
-    path: '/welcome',
+    path: "/welcome",
     element: <KoyaPayLogin />,
   },
   {
     path: "/login",
     element: <LoginUserScreen />,
+    element: <LoginScreen />,
   },
   {
     path: "/forgot-password",
@@ -67,11 +71,11 @@ export const router = createBrowserRouter([
         element: <Navigate to="/signup/account-type" replace />,
       },
       {
-        path: 'account-type',
+        path: "account-type",
         element: <AccountTypeScreen />,
       },
       {
-        path: 'business-mode',
+        path: "business-mode",
         element: <BusinessModeScreen />,
       },
       {
@@ -80,6 +84,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'register',
+        path: "register",
         element: <RegisteredBusinessScreen />,
       },
       {
@@ -101,15 +106,15 @@ export const router = createBrowserRouter([
         element: <Navigate to="/onboarding/intro" replace />,
       },
       {
-        path: 'intro',
+        path: "intro",
         element: <OnboardingIntroPage />,
       },
       {
-        path: 'owner-details',
+        path: "owner-details",
         element: <OwnerDetailsFormPage />,
       },
       {
-        path: 'business-details',
+        path: "business-details",
         element: <BusinessDetailsFormPage />,
       },
       {

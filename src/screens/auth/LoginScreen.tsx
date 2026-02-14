@@ -45,6 +45,8 @@ export const LoginScreen: React.FC = () => {
 
   const handleLogin = () => {
     navigate('/dashboard/home')
+    if (!validate()) return;
+    setIsLoading(true);
   };
 
   if (isLoading) {
@@ -58,7 +60,11 @@ export const LoginScreen: React.FC = () => {
         <div className="backdrop-blur-sm shadow-xl p-8 space-y-6">
           {/* Logo */}
                   <Logo/>
-
+    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex items-center justify-center px-6 py-12">
+      <div className="w-full max-w-md">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-[#c9b8ff]">
+          {/* Logo */}
+          
           {/* Header */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
