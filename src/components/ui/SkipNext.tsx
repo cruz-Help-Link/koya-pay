@@ -8,6 +8,9 @@ interface StepNavigationProps {
   skipLabel?: string;
   nextLabel?: string;
   activeColor?: string;
+    const handleSkip = () => {
+    navigate('/dashboard/home');
+  };
 }
 
 const StepNavigation: React.FC<StepNavigationProps> = ({
