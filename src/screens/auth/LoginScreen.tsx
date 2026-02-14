@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import LoadingBar from "../LoadingBar";
 import { Button, Input } from "../../components/ui";
 import { Eye, EyeOff, Lock } from "lucide-react";
+import { Container } from "../../components/ui/Container";
+import Logo from "../../components/Logo";
 
 export const LoginScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -42,8 +44,7 @@ export const LoginScreen: React.FC = () => {
   };
 
   const handleLogin = () => {
-    if (!validate()) return;
-    setIsLoading(true);
+    navigate('/dashboard/home')
   };
 
   if (isLoading) {
@@ -51,17 +52,12 @@ export const LoginScreen: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex items-center justify-center px-6 py-12">
+    <Container>
+   
       <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-[#c9b8ff]">
+        <div className="backdrop-blur-sm shadow-xl p-8 space-y-6">
           {/* Logo */}
-          <div className="flex justify-center">
-            <img
-              src="/src/assets/logo/primary-dark.png"
-              alt="KoyaPay"
-              className="w-40 h-20 object-contain"
-            />
-          </div>
+                  <Logo/>
 
           {/* Header */}
           <div>
@@ -138,15 +134,15 @@ export const LoginScreen: React.FC = () => {
           {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600">
             Don't have an account?{" "}
-            <Button
+            <button
               onClick={() => navigate("/signup")}
               className="text-[#221144] font-semibold hover:text-[#1a0d33] transition-colors"
             >
               Sign Up
-            </Button>
+            </button>
           </p>
         </div>
       </div>
-    </div>
+      </Container>
   );
 };
