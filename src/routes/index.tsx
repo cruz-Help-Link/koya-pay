@@ -29,6 +29,18 @@ import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { ForgotPasswordScreen } from '../screens/ForgotPasswordScreen';
 import { ForgotPasswordOTPScreen } from '../screens/ForgotPasswordOTPScreen';
+} from "../connected/onboarding";
+import KoyaPayLogin from "../pages/KoyaPayLogin";
+import OnboardingLayout from "../layouts/OnboardingLayout";
+import SignupLayout from "../layouts/SignupLayout";
+import { SplashScreen } from "../screens/SplashScreen";
+import { BusinessModeScreen } from "../screens/BusinessModeScreen";
+
+import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
+import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
+import { LoginScreen } from "../screens/auth/LoginScreen";
+import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
+import { StarterBusinessPage } from "../connected/onboarding/StarterBusinessPage";
 
 export const router = createBrowserRouter([
   {
