@@ -1,43 +1,30 @@
 import React from 'react';
-
-// type OverlayIntensity = 'light' | 'medium' | 'heavy';
+import bgDecoration from "../../assets/hand.jpg"; // 👈 your image path
 
 interface ContainerProps {
   children: React.ReactNode;
-  // overlayIntensity?: OverlayIntensity;
   className?: string;
 }
 
-// const overlayStyles: Record<OverlayIntensity, string> = {
-//   light: 'bg-[#EDE7FF]/40',
-//   medium: 'bg-[#E5DEFF]/75',
-//   heavy: 'bg-[#DDD4FF]/82',
-// };
-
 export const Container: React.FC<ContainerProps> = ({
   children,
-  // overlayIntensity = 'heavy',
   className = '',
 }) => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden "
-    style={{
-      backgroundColor: '[#E5DEFF]'
-    }}>
-      {/* Background Layer - White */}
-      <div className="absolute inset-0 bg-white">
-        {/* Subtle geometric decoration overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-[#c9b8ff]/40 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#AE92FF]/30 rounded-full blur-3xl" />
-        </div>
-      </div>
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#c9b8ff]">
 
-      {/* Brand Overlay Layer */}
-      <div
-        className={`absolute inset-0 mix-blend-multiply `}
-        aria-hidden="true"
-      />
+      {/* Decoration Image Underlay */}
+       <img
+        src={bgDecoration}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
+      /> 
+
+      {/* Purple Glow Decorations */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-[#c9b8ff] rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#AE92FF] rounded-full blur-3xl" />
+      </div>
 
       {/* Content Layer */}
       <div className={`relative z-10 flex min-h-screen items-center justify-center p-4 ${className}`}>
@@ -45,6 +32,7 @@ export const Container: React.FC<ContainerProps> = ({
           {children}
         </div>
       </div>
+
     </div>
   );
 };
