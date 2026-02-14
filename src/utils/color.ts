@@ -1,0 +1,16 @@
+export const T = {
+  deepPurple: "#22144F",
+  cardPurple: "#2A1760",
+  pageBg: "#AE92FF",
+  softLavender: "#D6C8FF",
+  inputBg: "rgba(255,255,255,0.35)",
+  inputBgFocus: "rgba(255,255,255,0.50)",
+  white: "#ffffff",
+  muted: "#8B7BB8",
+  mutedDark: "#6B5B95",
+  border: "rgba(34,20,79,0.10)",
+  accent: "#22144F",
+  iconBg: "rgba(34,20,79,0.08)",
+  shadow: "0 2px 12px rgba(34,20,79,0.08)",
+  cardShadow: "0 4px 20px rgba(34,20,79,0.12)",
+};
