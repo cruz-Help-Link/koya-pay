@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container } from '../../components/ui/Container';
-import { Button, Input } from '../../components/ui';
-import { Mail } from 'lucide-react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Container } from "../../components/ui/Container";
+import { Button, Input } from "../../components/ui";
+import { Mail } from "lucide-react";
+import Logo from "../../components/Logo";
 
 export const ForgotPasswordScreen: React.FC = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const handleContinue = () => {
     if (!email.trim()) {
-      setError('Email is required');
+      setError("Email is required");
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError('Invalid email format');
+      setError("Invalid email format");
       return;
     }
-    navigate('/verify-reset-password');
+    navigate("/verify-reset-password");
   };
 
   return (
@@ -34,17 +35,13 @@ export const ForgotPasswordScreen: React.FC = () => {
           </svg>
         </button> */}
 
-        {/* Logo */}
-        <div className="flex flex-col items-center">
-          <img src="/src/assets/logo/koyapay-logo.png" className="w-20 h-20 object-contain -mb-8" alt="KoyaPay" />
-          <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
-          </div>
-        </div>
+        <Logo />
 
         {/* Header */}
         <div className="text-center mt-12 mb-6">
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mb-2">Forgot your Password</h2>
+          <h2 className="text-2xl font-bold text-[#1a1a1a] mb-2">
+            Forgot your Password
+          </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             Please enter your email address to receive the
             <br />
@@ -60,34 +57,28 @@ export const ForgotPasswordScreen: React.FC = () => {
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
-              if (error) setError('');
+              if (error) setError("");
             }}
-            leftIcon={
-              <Mail  className="w-5 h-5" />
-
-            }
+            leftIcon={<Mail className="w-5 h-5" />}
           />
           {error && <p className="text-red-500 text-xs mt-1 ml-1">{error}</p>}
         </div>
 
         {/* Notice */}
         <p className="text-xs text-gray-500 leading-relaxed mb-auto">
-          Remember that an OTP password will be sent to you to complete verification.
+          Remember that an OTP password will be sent to you to complete
+          verification.
         </p>
 
         {/* Action Buttons */}
         <div className="space-y-3 mt-16">
-          <Button
-            variant="primary"
-            fullWidth
-            onClick={handleContinue}
-          >
+          <Button variant="primary" fullWidth onClick={handleContinue}>
             Continue
           </Button>
           <Button
             variant="secondary"
             fullWidth
-            onClick={() => navigate('/login')}
+            onClick={() => navigate("/login")}
           >
             Back
           </Button>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { Lock, Eye, EyeOff, ArrowLeft, Check } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { Container } from "../components/ui/Container";
+import Logo from "../components/Logo";
 
 export const CreateNewPasswordScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -59,6 +59,11 @@ export const CreateNewPasswordScreen: React.FC = () => {
               <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
             </div>
           </div>
+  return (
+    <Container>
+      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
+               <Logo />
+
 
           {/* Success Content */}
           <div className="flex-1 flex items-center justify-center">
