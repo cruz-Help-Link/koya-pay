@@ -145,11 +145,11 @@
     @apply box-border;
   }
 
-  body {
-    font-family: 'Outfit', 'Segoe UI Emoji', 'Segoe UI Symbol', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+body {
+  font-family: var(--font-outfit);
+  background-color: var(--koyapay-accent-lighter);
+}
+
    h1, h2, h3, h4, h5, h6 {
     font-family: 'Aeonik Trial', 'Helvetica Neue', Arial, sans-serif;
   }
