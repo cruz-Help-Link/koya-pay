@@ -14,8 +14,9 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
   currentStep = 1,
   totalSteps = 7,
 }) => {
+
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
