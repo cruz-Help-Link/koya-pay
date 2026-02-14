@@ -15,26 +15,18 @@ export const ForgotPasswordScreen: React.FC = () => {
       setError("Email is required");
       return;
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Invalid email format");
       return;
     }
+
     navigate("/verify-reset-password");
   };
 
   return (
     <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
-        {/* Back Arrow */}
-        {/* <button
-          onClick={() => navigate('/login')}
-          className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
-        >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button> */}
-
         <Logo />
 
         {/* Header */}
@@ -61,7 +53,9 @@ export const ForgotPasswordScreen: React.FC = () => {
             }}
             leftIcon={<Mail className="w-5 h-5" />}
           />
-          {error && <p className="text-red-500 text-xs mt-1 ml-1">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-xs mt-1 ml-1">{error}</p>
+          )}
         </div>
 
         {/* Notice */}
@@ -70,11 +64,12 @@ export const ForgotPasswordScreen: React.FC = () => {
           verification.
         </p>
 
-        {/* Action Buttons */}
+        {/* Buttons */}
         <div className="space-y-3 mt-16">
           <Button variant="primary" fullWidth onClick={handleContinue}>
             Continue
           </Button>
+
           <Button
             variant="secondary"
             fullWidth
