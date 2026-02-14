@@ -3,7 +3,7 @@ import {
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
-} from '../connected/signup';
+} from '../connected/auth';
 import {
   OnboardingIntroPage,
   OwnerDetailsFormPage,
@@ -19,25 +19,19 @@ import {
   BusinessContactOTPPage,
   CompanyVerificationSuccessPage,
 } from '../connected/onboarding';
-import KoyaPayLogin from '../pages/KoyaPayLogin';
 import OnboardingLayout from '../layouts/OnboardingLayout';
 import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
-} from "../connected/onboarding";
 import KoyaPayLogin from "../pages/KoyaPayLogin";
-import OnboardingLayout from "../layouts/OnboardingLayout";
-import SignupLayout from "../layouts/SignupLayout";
-import { SplashScreen } from "../screens/SplashScreen";
-import { BusinessModeScreen } from "../screens/BusinessModeScreen";
 
 import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
-import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
-import { LoginScreen } from "../screens/auth/LoginScreen";
 import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
-import { StarterBusinessPage } from "../connected/onboarding/StarterBusinessPage";
+import Dashboard from '../pages/Dashboard';
+import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
+import DashboardLayout from '../layouts/DashboardLayout';
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +44,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginScreen />,
+    element: <LoginUserScreen />,
   },
   {
     path: "/forgot-password",
@@ -158,6 +152,20 @@ export const router = createBrowserRouter([
         path: 'company-verification-success',
         element: <CompanyVerificationSuccessPage />,
       },
+    ],
+  },
+  {
+  path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard/home" replace />,
+      },
+      {
+        path: 'home',
+        element: <Dashboard />,
+      }
     ],
   },
   {
