@@ -1,44 +1,25 @@
-import { useState } from 'react';
-import { FileUpload, Button } from '../../components/ui';
+import React from 'react';
+import { Button } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
-interface DocumentUploadPageProps {
-  documentType: string;
-  onUploadComplete: (file: File) => void;
+interface CompanyVerificationIntroPageProps {
+  onStart: () => void;
   onSkip: () => void;
   onNext: () => void;
   currentStep?: number;
   totalSteps?: number;
 }
 
-export const DocumentUploadPage: React.FC<DocumentUploadPageProps> = ({
-  documentType = 'Utility bill',
-  onUploadComplete,
+export const CompanyVerificationIntroPage: React.FC<CompanyVerificationIntroPageProps> = ({
+  onStart,
   onSkip,
   onNext,
-  currentStep = 7,
+  currentStep = 1,
   totalSteps = 7,
 }) => {
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-  const [error, setError] = useState<string>('');
-
-  const handleFileSelect = (file: File) => {
-    setUploadedFile(file);
-    setError('');
-  };
-
-  const handleNext = () => {
-    if (!uploadedFile) {
-      setError('Please upload a document to continue');
-      return;
-    }
-    onUploadComplete(uploadedFile);
-    onNext();
-  };
-
   return (
     <Container overlayIntensity="medium">
-      <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
+      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
           onClick={onSkip}
@@ -58,28 +39,17 @@ export const DocumentUploadPage: React.FC<DocumentUploadPageProps> = ({
         </div>
 
         {/* Header */}
-        <div className="mt-8 mb-6">
-          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-1">
-            {documentType}
-          </h1>
-          <p className="text-sm text-gray-600">Upload your document</p>
+        <div className="text-center mt-12 mb-6">
+          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Company's Verification</h1>
         </div>
 
-        {/* File Upload */}
-        <div className="flex-1 mb-auto">
-          <FileUpload
-            onFileSelect={handleFileSelect}
-            accept="image/jpeg,image/png,application/pdf"
-            maxSize={2}
-          />
-          {uploadedFile && (
-            <p className="mt-4 text-sm text-green-600 font-medium">
-              ✓ {uploadedFile.name} uploaded successfully
-            </p>
-          )}
-          {error && (
-            <p className="mt-4 text-sm text-red-500 font-medium">{error}</p>
-          )}
+        {/* Main Content */}
+        <div className="flex-1 flex items-center justify-center mb-auto">
+          <div className="text-center max-w-md">
+            <h2 className="text-xl font-bold text-[#1a1a1a] mb-4">
+              Confirm Company and one Executive to start
+            </h2>
+          </div>
         </div>
 
         {/* Action Button */}
@@ -87,9 +57,9 @@ export const DocumentUploadPage: React.FC<DocumentUploadPageProps> = ({
           <Button
             variant="primary"
             fullWidth
-            onClick={handleNext}
+            onClick={onStart}
           >
-            Continue
+            Start
           </Button>
 
           {/* Progress Indicator */}
@@ -116,7 +86,7 @@ export const DocumentUploadPage: React.FC<DocumentUploadPageProps> = ({
             </div>
 
             <button
-              onClick={handleNext}
+              onClick={onNext}
               className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
             >
               NEXT

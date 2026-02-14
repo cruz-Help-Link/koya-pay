@@ -13,12 +13,19 @@ import {
   DocumentUploadPage,
   ReviewSuccessPage,
   OnboardingCompletePage,
+  CompanyVerificationIntroPage,
+  CompanyCACDetailsFormPage,
+  ExecutiveVerificationFormPage,
+  BusinessContactOTPPage,
+  CompanyVerificationSuccessPage,
 } from '../connected/onboarding';
 import KoyaPayLogin from '../pages/KoyaPayLogin';
 import OnboardingLayout from '../layouts/OnboardingLayout';
 import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
+import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
+import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 
 export const router = createBrowserRouter([
   {
@@ -46,12 +53,20 @@ export const router = createBrowserRouter([
         element: <BusinessModeScreen />,
       },
       {
+        path: 'starter-business',
+        element: <StarterBusinessScreen />,
+      },
+      {
         path: 'register',
         element: <RegisteredBusinessScreen />,
       },
       {
         path: 'verify-email',
         element: <VerifyEmailScreen />,
+      },
+      {
+        path: 'create-new-password',
+        element: <CreateNewPasswordScreen />,
       },
     ],
   },
@@ -94,6 +109,26 @@ export const router = createBrowserRouter([
       {
         path: 'complete',
         element: <OnboardingCompletePage />,
+      },
+      {
+        path: 'company-verification-intro',
+        element: <CompanyVerificationIntroPage />,
+      },
+      {
+        path: 'company-cac-details',
+        element: <CompanyCACDetailsFormPage />,
+      },
+      {
+        path: 'executive-verification',
+        element: <ExecutiveVerificationFormPage />,
+      },
+      {
+        path: 'business-contact-otp',
+        element: <BusinessContactOTPPage />,
+      },
+      {
+        path: 'company-verification-success',
+        element: <CompanyVerificationSuccessPage />,
       },
     ],
   },

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
-interface OwnerDetails {
+interface ExecutiveDetails {
   fullName: string;
   dateOfBirth: string;
   nationality: string;
@@ -11,22 +11,22 @@ interface OwnerDetails {
   photo: File | null;
 }
 
-interface OwnerDetailsFormPageProps {
-  onContinue: (data: OwnerDetails) => void;
+interface ExecutiveVerificationFormPageProps {
+  onSubmit: (data: ExecutiveDetails) => void;
   onSkip: () => void;
   onNext: () => void;
   currentStep?: number;
   totalSteps?: number;
 }
 
-export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
-  onContinue,
+export const ExecutiveVerificationFormPage: React.FC<ExecutiveVerificationFormPageProps> = ({
+  onSubmit,
   onSkip,
   onNext,
-  currentStep = 2,
+  currentStep = 3,
   totalSteps = 7,
 }) => {
-  const [formData, setFormData] = useState<OwnerDetails>({
+  const [formData, setFormData] = useState<ExecutiveDetails>({
     fullName: '',
     dateOfBirth: '',
     nationality: '',
@@ -36,7 +36,7 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (field: keyof OwnerDetails) => (
+  const handleChange = (field: keyof ExecutiveDetails) => (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFormData(prev => ({ ...prev, [field]: e.target.value }));
@@ -70,9 +70,9 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmitForm = () => {
     if (validateForm()) {
-      onContinue(formData);
+      onSubmit(formData);
     }
   };
 
@@ -100,9 +100,8 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
         {/* Header */}
         <div className="mt-8 mb-6">
           <h1 className="text-2xl font-bold text-[#1a1a1a] mb-1">
-            Owner's Verification
+            Executive Verification
           </h1>
-          <p className="text-sm text-gray-600">Verify owner and business</p>
         </div>
 
         {/* Form */}
@@ -192,7 +191,7 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
             )}
           </div>
 
-          {/* Phone Number */}
+          {/* Phone Number for OTP */}
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
@@ -202,7 +201,7 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
               </div>
               <input
                 type="tel"
-                placeholder="Phone Number"
+                placeholder="Phone Number for OTP"
                 className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
                 value={formData.phoneNumber}
                 onChange={handleChange('phoneNumber')}
@@ -237,7 +236,7 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
           <Button
             variant="primary"
             fullWidth
-            onClick={handleSubmit}
+            onClick={handleSubmitForm}
           >
             Continue
           </Button>

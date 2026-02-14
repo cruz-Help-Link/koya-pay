@@ -1,7 +1,7 @@
 import { Button } from "../../components/ui";
-import { Container } from '../../components/ui/Container';
+import { Container } from "../../components/ui/Container";
 
-interface ReviewSuccessPageProps {
+interface CompanyVerificationSuccessPageProps {
   onContinue: () => void;
   onSkip: () => void;
   onNext: () => void;
@@ -10,13 +10,13 @@ interface ReviewSuccessPageProps {
   monthlyLimit?: string;
 }
 
-export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
+export const CompanyVerificationSuccessPage: React.FC<CompanyVerificationSuccessPageProps> = ({
   onContinue,
   onSkip,
   onNext,
-  currentStep = 4,
+  currentStep = 5,
   totalSteps = 7,
-  monthlyLimit = '2 Million per month',
+  monthlyLimit = '5 Million per month',
 }) => {
   return (
     <Container overlayIntensity="medium">
@@ -41,11 +41,11 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
 
         {/* Header */}
         <div className="text-center mt-12 mb-6">
-          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Owner's Verification</h1>
+          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Company's Verification</h1>
         </div>
 
         {/* Success Card */}
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center mb-auto">
           <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
             {/* Success Icon with decorations */}
             <div className="relative mb-6">

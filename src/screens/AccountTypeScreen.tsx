@@ -13,6 +13,8 @@ export const AccountTypeScreen: React.FC = () => {
 
   const handleAccountTypeSelect = (type: 'starter' | 'registered') => {
     setSelectedType(type);
+    // Store account type in sessionStorage for use in business mode screen
+    sessionStorage.setItem('accountType', type);
     navigate('/signup/business-mode');
   };
 

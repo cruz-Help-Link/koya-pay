@@ -8,6 +8,18 @@ type BusinessMode = 'online' | 'offline' | 'both' | null;
 export const BusinessModeScreen: React.FC = () => {
   const navigate = useNavigate();
   const [selectedMode, setSelectedMode] = useState<BusinessMode>(null);
+  const accountType = sessionStorage.getItem('accountType') || 'registered';
+
+  const handleContinue = () => {
+    if (!selectedMode) return;
+
+    // Route based on account type
+    if (accountType === 'starter') {
+      navigate('/signup/starter-business');
+    } else {
+      navigate('/signup/register');
+    }
+  };
 
   return (
     <Container overlayIntensity="medium">
@@ -84,7 +96,7 @@ export const BusinessModeScreen: React.FC = () => {
         {/* Continue Button */}
         <div className="mb-auto">
           <button
-            onClick={() => selectedMode && navigate('/signup/register')}
+            onClick={handleContinue}
             disabled={!selectedMode}
             className="w-full py-4 px-6 bg-gradient-to-r from-[#221144] to-[#1a0d33] text-white font-semibold rounded-full hover:from-[#1a0d33] hover:to-[#110822] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
           >
