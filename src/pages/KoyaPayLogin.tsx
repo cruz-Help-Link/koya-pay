@@ -1,15 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Container } from '../components/ui/Container';
 
 const KoyaPayLogin: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+    <Container>
       {/* Container - responsive max width */}
       <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
         {/* Phone frame simulation for larger screens */}
-        <div className="bg-white rounded-3xl lg:rounded-[3rem] overflow-hidden">
+        <div className="rounded-3xl lg:rounded-[3rem] overflow-hidden">
           {/* Main content */}
           <div className="px-8 py-12 lg:px-8 lg:py-10 xl:px-16 xl:py-20 flex flex-col items-center justify-center min-h-[600px] lg:min-h-[700px]">
             {/* Logo */}
@@ -46,7 +47,7 @@ const KoyaPayLogin: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
