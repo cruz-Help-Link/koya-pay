@@ -78,8 +78,8 @@ export const OwnerDetailsFormPage: React.FC<OwnerDetailsFormPageProps> = ({
   };
 
   return (
-    <Container overlayIntensity="medium">
-      <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
+    <Container>
+      <div className="flex flex-col min-h-screen px-6 pt-10 pb-12">
         {/* Back Arrow */}
         <button
           onClick={onSkip}
