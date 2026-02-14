@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/Button";
 import { Container } from "../components/ui/Container";
+import Logo from "../components/Logo";
 
 export const CreateNewPasswordScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -12,15 +13,10 @@ export const CreateNewPasswordScreen: React.FC = () => {
   };
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
-        {/* Logo */}
-        <div className="flex flex-col items-center">
-          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
-          <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
-          </div>
-        </div>
+               <Logo />
+
 
         {/* Success Content */}
         <div className="flex-1 flex items-center justify-center">

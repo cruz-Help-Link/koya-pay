@@ -7,6 +7,7 @@ import { Container } from "../components/ui/Container";
 
 // Lucide imports
 import { ArrowLeft, User, Mail, Eye, EyeOff, ChevronDown, ChevronUp } from "lucide-react";
+import Logo from "../components/Logo";
 
 const countries = [
   { code: "NG", name: "Nigeria", flag: "🇳🇬" },
@@ -94,18 +95,8 @@ export const BusinessSignupForm: React.FC<BusinessSignupFormProps> = ({
           <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
-        {/* Logo */}
-        <div className="flex flex-col items-center">
-          <img
-            src="/src/assets/logo/koyapay-logo.png"
-            className="w-20 h-20 object-contain -mb-8"
-            alt="KoyaPay"
-          />
-          <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span>
-            <span className="text-black">Pay</span>
-          </div>
-        </div>
+                <Logo />
+
 
         {/* Header */}
         <div className="mt-8 mb-6">
