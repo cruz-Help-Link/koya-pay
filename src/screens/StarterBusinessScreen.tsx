@@ -1,4 +1,3 @@
-// screens/StarterBusinessScreen.tsx
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/Button";
@@ -32,16 +31,17 @@ export const StarterBusinessScreen: React.FC = () => {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
+
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
-    }
 
+    
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Please enter a valid email";
     }
-
+    
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 8) {
@@ -49,13 +49,13 @@ export const StarterBusinessScreen: React.FC = () => {
     } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
       newErrors.password = "Password must include uppercase, lowercase, and number";
     }
-
+    
     if (!formData.confirmPassword) {
       newErrors.confirmPassword = "Please confirm your password";
     } else if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
     }
-
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
