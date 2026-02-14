@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingBar from "../LoadingBar";
 import { Button, Input } from "../../components/ui";
@@ -44,28 +44,26 @@ export const LoginScreen: React.FC = () => {
   };
 
   const handleLogin = () => {
-    navigate('/dashboard/home')
-    if (!validate()) return;
-    setIsLoading(true);
+  if (!validate()) return;
+  setIsLoading(true);
   };
 
+  const handleLoadingComplete = useCallback(() => {
+  navigate("/dashboard/home");
+}, [navigate]);
+
   if (isLoading) {
-    return <LoadingBar duration={3000} onComplete={() => navigate("/home")} />;
+    return <LoadingBar duration={3000} onComplete={handleLoadingComplete} />;
   }
 
   return (
-    <Container>
-   
+  <Container>
+    <div className="min-h-screen  flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
-        <div className="backdrop-blur-sm shadow-xl p-8 space-y-6">
-          {/* Logo */}
-                  <Logo/>
-    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex items-center justify-center px-6 py-12">
-      <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6 border border-[#c9b8ff]">
-          {/* Logo */}
-          
-          {/* Header */}
+        <div className="backdrop-blur-sm rounded-xl p-8 space-y-6 ">
+
+          <Logo />
+
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               Welcome Back
@@ -73,7 +71,6 @@ export const LoginScreen: React.FC = () => {
             <p className="text-gray-600">Sign in to your account</p>
           </div>
 
-          {/* Form */}
           <div className="space-y-4">
             <div>
               <Input
@@ -81,8 +78,7 @@ export const LoginScreen: React.FC = () => {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange("email")}
-               leftIcon={<Lock className="w-5 h-5" />}
-
+                leftIcon={<Lock className="w-5 h-5" />}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>
@@ -97,12 +93,11 @@ export const LoginScreen: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange("password")}
                   leftIcon={<Lock className="w-5 h-5" />}
-
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -111,6 +106,7 @@ export const LoginScreen: React.FC = () => {
                   )}
                 </button>
               </div>
+
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1 ml-1">
                   {errors.password}
@@ -118,37 +114,37 @@ export const LoginScreen: React.FC = () => {
               )}
             </div>
 
-            {/* Forgot Password */}
             <div className="text-right">
               <button
                 onClick={() => navigate("/forgot-password")}
-                className="text-sm text-[#221144] hover:text-[#1a0d33] font-medium transition-colors"
+                className="text-sm text-[#221144] font-medium"
               >
                 Forgot Password?
               </button>
             </div>
           </div>
 
-          {/* Login Button */}
           <Button
             onClick={handleLogin}
-            className="w-full bg-gradient-to-r from-[#221144] to-[#AE92FF] hover:from-[#1a0d33] hover:to-[#9e7ff0] text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full bg-gradient-to-r from-[#221144] to-[#AE92FF] text-white py-4 rounded-2xl"
           >
             Sign In
           </Button>
 
-          {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600">
             Don't have an account?{" "}
             <button
               onClick={() => navigate("/signup")}
-              className="text-[#221144] font-semibold hover:text-[#1a0d33] transition-colors"
+              className="text-[#221144] font-semibold"
             >
               Sign Up
             </button>
           </p>
+
         </div>
       </div>
-      </Container>
-  );
+    </div>
+  </Container>
+);
+
 };

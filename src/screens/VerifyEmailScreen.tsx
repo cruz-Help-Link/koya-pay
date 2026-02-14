@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
@@ -48,13 +48,16 @@ export const VerifyEmailScreen: React.FC = () => {
     setIsVerifying(true);
   };
 
-  if (isVerifying) {
-    return <LoadingBar duration={3000} onComplete={() => navigate('/onboarding')} />;
-  }
+  const handleComplete = useCallback(() => {
+  navigate("/onboarding");
+}, [navigate]);
+
+if (isVerifying) {
+  return <LoadingBar duration={3000} onComplete={handleComplete} />;
+}
 
   return (
     <Container>
-      <div className="flex flex-col min-h-screen px-6 pt-12 pb-12">
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Back Arrow */}
         <button
