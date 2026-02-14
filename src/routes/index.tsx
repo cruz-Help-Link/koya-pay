@@ -82,11 +82,11 @@ export const router = createBrowserRouter([
         element: <Navigate to="/signup/account-type" replace />,
       },
       {
-        path: 'account-type',
+        path: "account-type",
         element: <AccountTypeScreen />,
       },
       {
-        path: 'business-mode',
+        path: "business-mode",
         element: <BusinessModeScreen />,
       },
       {
@@ -102,6 +102,10 @@ export const router = createBrowserRouter([
         element: <VerifyEmailScreen />,
       },
       {
+        path: 'create-new-password',
+        element: <CreateNewPasswordScreen />,
+      },
+      {
         path: 'starter-success',
         element: <StarterBusinessSuccessScreen />,
       },
@@ -112,7 +116,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/onboarding",
+    path: '/onboarding',
     element: <OnboardingLayout />,
     children: [
       {
@@ -136,19 +140,19 @@ export const router = createBrowserRouter([
         element: <BusinessDetailsFormPage />,
       },
       {
-        path: "location-intro",
+        path: 'location-intro',
         element: <BusinessLocationIntroPage />,
       },
       {
-        path: "verification-method",
+        path: 'verification-method',
         element: <VerificationMethodSelectionPage />,
       },
       {
-        path: "document-upload",
+        path: 'document-upload',
         element: <DocumentUploadPage />,
       },
       {
-        path: "review",
+        path: 'review',
         element: <ReviewSuccessPage />,
       },
       {
