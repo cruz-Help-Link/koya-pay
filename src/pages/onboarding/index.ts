@@ -7,3 +7,8 @@ export { VerificationMethodSelectionPage } from './VerificationMethodSelectionPa
 export { DocumentUploadPage } from './DocumentUploadPage';
 export { ImageEditPage } from './ImageEditPage';
 export { OnboardingCompletePage } from './OnboardingCompletePage';
+export { CompanyVerificationIntroPage } from './CompanyVerificationIntroPage';
+export { CompanyCACDetailsFormPage } from './CompanyCACDetailsFormPage';
+export { ExecutiveVerificationFormPage } from './ExecutiveVerificationFormPage';
+export { BusinessContactOTPPage } from './BusinessContactOTPPage';
+export { CompanyVerificationSuccessPage } from './CompanyVerificationSuccessPage';

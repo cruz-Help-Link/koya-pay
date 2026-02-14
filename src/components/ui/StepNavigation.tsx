@@ -8,9 +8,6 @@ interface StepNavigationProps {
   skipLabel?: string;
   nextLabel?: string;
   activeColor?: string;
-    const handleSkip = () => {
-    navigate('/dashboard/home');
-  };
 }
 
 const StepNavigation: React.FC<StepNavigationProps> = ({
@@ -24,23 +21,28 @@ const StepNavigation: React.FC<StepNavigationProps> = ({
 }) => {
   return (
     <div className="flex items-center justify-between text-sm pt-4">
+      {/* Skip Button */}
       <button
         onClick={onSkip}
         className="text-gray-500 hover:text-gray-700 font-medium"
       >
         {skipLabel}
       </button>
+
+      {/* Step Indicators */}
       <div className="flex gap-2">
         {Array.from({ length: totalSteps }, (_, i) => (
           <div
             key={i}
             className={`h-2 rounded-full transition-all ${
-              i === activeStep ? "w-8" : "bg-gray-300 w-2"
+              i === activeStep ? "w-8" : "w-2 bg-gray-300"
             }`}
             style={i === activeStep ? { backgroundColor: activeColor } : undefined}
           />
         ))}
       </div>
+
+      {/* Next Button */}
       <button
         onClick={onNext}
         className="font-medium"

@@ -3,6 +3,7 @@ import {
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
+} from '../connected/auth';
 } from "../connected/signup";
 import {
   OnboardingIntroPage,
@@ -13,17 +14,27 @@ import {
   DocumentUploadPage,
   ReviewSuccessPage,
   OnboardingCompletePage,
-} from "../connected/onboarding";
+  CompanyVerificationIntroPage,
+  CompanyCACDetailsFormPage,
+  ExecutiveVerificationFormPage,
+  BusinessContactOTPPage,
+  CompanyVerificationSuccessPage,
+} from '../connected/onboarding';
+import OnboardingLayout from '../layouts/OnboardingLayout';
+import SignupLayout from '../layouts/SignupLayout';
+import { SplashScreen } from '../screens/SplashScreen';
+import { BusinessModeScreen } from '../screens/BusinessModeScreen';
+import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
+import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 import KoyaPayLogin from "../pages/KoyaPayLogin";
-import OnboardingLayout from "../layouts/OnboardingLayout";
-import SignupLayout from "../layouts/SignupLayout";
-import { SplashScreen } from "../screens/SplashScreen";
-import { BusinessModeScreen } from "../screens/BusinessModeScreen";
 
 import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
-import { CreateNewPasswordScreen } from "../screens/auth/CreateNewPasswordScreen";
-import { LoginScreen } from "../screens/auth/LoginScreen";
 import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
+import Dashboard from '../pages/Dashboard';
+import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
+import DashboardLayout from '../layouts/DashboardLayout';
+} from "../connected/onboarding";
+
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +47,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
+    element: <LoginUserScreen />,
     element: <LoginScreen />,
   },
   {
@@ -67,12 +79,21 @@ export const router = createBrowserRouter([
         element: <BusinessModeScreen />,
       },
       {
+        path: 'starter-business',
+        element: <StarterBusinessScreen />,
+      },
+      {
+        path: 'register',
         path: "register",
         element: <RegisteredBusinessScreen />,
       },
       {
         path: "verify-email",
         element: <VerifyEmailScreen />,
+      },
+      {
+        path: 'create-new-password',
+        element: <CreateNewPasswordScreen />,
       },
     ],
   },
@@ -116,6 +137,40 @@ export const router = createBrowserRouter([
         path: "complete",
         element: <OnboardingCompletePage />,
       },
+      {
+        path: 'company-verification-intro',
+        element: <CompanyVerificationIntroPage />,
+      },
+      {
+        path: 'company-cac-details',
+        element: <CompanyCACDetailsFormPage />,
+      },
+      {
+        path: 'executive-verification',
+        element: <ExecutiveVerificationFormPage />,
+      },
+      {
+        path: 'business-contact-otp',
+        element: <BusinessContactOTPPage />,
+      },
+      {
+        path: 'company-verification-success',
+        element: <CompanyVerificationSuccessPage />,
+      },
+    ],
+  },
+  {
+  path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard/home" replace />,
+      },
+      {
+        path: 'home',
+        element: <Dashboard />,
+      }
     ],
   },
   {

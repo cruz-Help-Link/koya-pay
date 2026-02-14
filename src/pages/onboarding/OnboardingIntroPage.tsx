@@ -1,4 +1,5 @@
 import { Button } from "../../components/ui";
+import { Container } from '../../components/ui/Container';
 
 interface OnboardingIntroPageProps {
   onStart: () => void;
@@ -13,96 +14,85 @@ export const OnboardingIntroPage: React.FC<OnboardingIntroPageProps> = ({
   currentStep = 1,
   totalSteps = 7,
 }) => {
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#e5deff] via-white to-[#f5f0ff] flex flex-col px-6 py-8">
-      {/* Back Arrow */}
-      <button
-        onClick={onSkip}
-        className="absolute top-6 left-6 p-2 rounded-xl hover:bg-[#e5deff] transition-colors"
-      >
-        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      {/* Header */}
-      <div className="mb-12">
-        <div className="flex items-center justify-center mb-6">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#221144] to-[#AE92FF] rounded-3xl blur-xl opacity-30"></div>
-            <div className="relative w-20 h-20 bg-gradient-to-r from-[#221144] to-[#AE92FF] rounded-3xl flex items-center justify-center shadow-xl">
-              <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Owner's Verification
-          </h1>
-          <p className="text-gray-600">Let's verify your business ownership</p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center">
-        <div className="text-center max-w-md space-y-6">
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-[#c9b8ff]">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Verify owner and business
-            </h2>
-            <p className="text-gray-600">
-              Complete a quick verification process to unlock all features and higher transaction limits
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Action Button */}
-      <div className="space-y-6">
-        <Button
-          variant="primary"
-          size="lg"
-          fullWidth
-          onClick={onStart}
+    <Container>
+      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
+        {/* Back Arrow */}
+        <button
+          onClick={onSkip}
+          className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          Start Verification
-        </Button>
+          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-        {/* Progress Indicator */}
-        <div className="flex items-center justify-center gap-6">
-          <button
-            onClick={onSkip}
-            className="text-gray-500 font-medium hover:text-gray-700 transition-colors"
-          >
-            SKIP
-          </button>
-
-          {/* Dots */}
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalSteps }).map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 rounded-full transition-all duration-200 ${
-                  index === currentStep - 1
-                    ? 'bg-gradient-to-r from-[#221144] to-[#AE92FF] w-8'
-                    : 'bg-gray-300 w-2'
-                }`}
-              />
-            ))}
+        {/* Logo */}
+        <div className="flex flex-col items-center">
+          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <div className="text-2xl font-semibold mt-6">
+            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
           </div>
+        </div>
 
-          <button
+        {/* Header */}
+        <div className="text-center mt-12 mb-6">
+          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Owner's Verification</h1>
+          <p className="text-sm text-gray-600">Verify owner and business</p>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 flex items-center justify-center mb-auto">
+          <div className="text-center max-w-md">
+            <h2 className="text-xl font-bold text-[#1a1a1a] mb-4">
+              Complete verification to unlock all features
+            </h2>
+          </div>
+        </div>
+
+        {/* Action Button */}
+        <div className="space-y-4 mt-16">
+          <Button
+            variant="primary"
+            fullWidth
             onClick={onStart}
-            className="text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
           >
-            NEXT
-          </button>
+            Start Verification
+          </Button>
+
+          {/* Progress Indicator */}
+          <div className="flex items-center justify-center gap-6 mt-6">
+            <button
+              onClick={onSkip}
+              className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
+            >
+              SKIP
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalSteps }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    index === currentStep - 1
+                      ? 'bg-[#221144] w-8'
+                      : 'bg-gray-300 w-2'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={onStart}
+              className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
+            >
+              NEXT
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };

@@ -12,7 +12,7 @@ export const OnboardingIntroPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/dashboard/home');
   };
 
   return (

@@ -4,6 +4,7 @@ import { Button } from "../../components/ui/Button";
 import { Container } from "../../components/ui/Container";
 import LoadingBar from "../LoadingBar";
 import { ChevronLeft } from "lucide-react";
+import Logo from "../../components/Logo";
 
 export const VerifyEmailChangePassword: React.FC = () => {
   const navigate = useNavigate();
@@ -68,6 +69,8 @@ export const VerifyEmailChangePassword: React.FC = () => {
         </button>
 
         {/* Logo */}
+              <Logo />
+
         <div className="flex flex-col items-center">
           <img
             src="/src/assets/logo/koyapay-logo.png"
