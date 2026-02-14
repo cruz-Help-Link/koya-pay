@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import LoadingBar from './LoadingBar';
+import Logo from '../components/Logo';
 
 export const VerifyEmailScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ export const VerifyEmailScreen: React.FC = () => {
 
   return (
     <Container>
-      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
+      <div className="flex flex-col min-h-screen px-6 pt-12 pb-12">
         {/* Back Arrow */}
         <button
           onClick={() => navigate('/signup/register')}
@@ -63,13 +64,8 @@ export const VerifyEmailScreen: React.FC = () => {
           <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
-        {/* Logo */}
-        <div className="flex flex-col items-center">
-          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
-          <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
-          </div>
-        </div>
+               <Logo />
+
 
         {/* Header */}
         <div className="text-center mt-12 mb-6">
@@ -118,7 +114,7 @@ export const VerifyEmailScreen: React.FC = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="space-y-4 mt-16">
+        <div className="space-y-4 mt-4">
           <Button
             variant="primary"
             fullWidth
