@@ -9,7 +9,7 @@ export const BusinessDetailsFormPage = () => {
   const handleSubmit = (data: any) => {
     setBusinessDetails(data);
     goToNextStep();
-    navigate('/onboarding/location-intro');
+    navigate('/onboarding/company-verification-intro');
   };
 
   const handleSkip = () => {
@@ -18,7 +18,7 @@ export const BusinessDetailsFormPage = () => {
 
   const handleNext = () => {
     goToNextStep();
-    navigate('/onboarding/location-intro');
+    navigate('/onboarding/company-verification-intro');
   };
 
   return (
