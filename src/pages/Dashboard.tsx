@@ -54,9 +54,6 @@ export default function Dashboard() {
           ))}
         </ListContainer>
       </main>
-
-      {/* Bottom Navigation */}
-      <BottomNavigation />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DashHeader from "../dashboard/DashHeader";
+import BottomNavigation from "../dashboard/BottomNavigation";
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
@@ -31,8 +32,7 @@ const DashboardLayout: React.FC = () => {
         <Outlet />
       </main>
 
-      {/* Optional: Bottom navigation */}
-      {/* <DashboardBottomNav currentPage={currentPage} /> */}
+      <BottomNavigation />
     </div>
   );
 };
