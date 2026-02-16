@@ -52,19 +52,8 @@ export const CreateNewPasswordScreen: React.FC = () => {
     return (
       <Container overlayIntensity="medium">
         <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
-          {/* Logo */}
-          <div className="flex flex-col items-center">
-            <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
-            <div className="text-2xl font-semibold mt-6">
-              <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
-            </div>
-          </div>
-  return (
-    <Container>
-      <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
+
                <Logo />
-
-
           {/* Success Content */}
           <div className="flex-1 flex items-center justify-center">
             <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
