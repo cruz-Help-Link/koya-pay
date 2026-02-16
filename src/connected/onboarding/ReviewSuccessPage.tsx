@@ -7,11 +7,11 @@ export const ReviewSuccessPage = () => {
   const { currentStep } = useOnboardingStore();
 
   const handleContinue = () => {
-    navigate('/onboarding/company-verification-intro');
+    navigate('/onboarding/complete');
   };
 
   const handleNext = () => {
-    navigate('/onboarding/company-verification-intro');
+    navigate('/onboarding/complete');
   };
 
   const handleSkip = () => {

@@ -6,7 +6,7 @@ export const CompanyVerificationSuccessPage = () => {
 
   const handleContinue = () => {
     // Navigate to dashboard after successful verification
-    navigate('/dashboard');
+    navigate('/onboarding/location-intro');
   };
 
   const handleSkip = () => {
@@ -14,7 +14,7 @@ export const CompanyVerificationSuccessPage = () => {
   };
 
   const handleNext = () => {
-    navigate('/dashboard');
+    navigate('/onboarding/location-intro');
   };
 
   return (
