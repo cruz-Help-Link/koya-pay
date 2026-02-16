@@ -3,7 +3,7 @@ import {
   AccountTypeScreen,
   RegisteredBusinessScreen,
   VerifyEmailScreen,
-} from '../connected/signup';
+} from '../connected/auth';
 import {
   OnboardingIntroPage,
   OwnerDetailsFormPage,
@@ -114,26 +114,6 @@ export const router = createBrowserRouter([
         element: <BusinessDetailsFormPage />,
       },
       {
-        path: "location-intro",
-        element: <BusinessLocationIntroPage />,
-      },
-      {
-        path: "verification-method",
-        element: <VerificationMethodSelectionPage />,
-      },
-      {
-        path: "document-upload",
-        element: <DocumentUploadPage />,
-      },
-      {
-        path: "review",
-        element: <ReviewSuccessPage />,
-      },
-      {
-        path: "complete",
-        element: <OnboardingCompletePage />,
-      },
-      {
         path: 'company-verification-intro',
         element: <CompanyVerificationIntroPage />,
       },
@@ -153,6 +133,30 @@ export const router = createBrowserRouter([
         path: 'company-verification-success',
         element: <CompanyVerificationSuccessPage />,
       },
+      {
+        path: "location-intro",
+        element: <BusinessLocationIntroPage />,
+      },
+      {
+        path: "verification-method",
+        element: <VerificationMethodSelectionPage />,
+      },
+      {
+        path: "document-upload",
+        element: <DocumentUploadPage />,
+      },
+
+      // Live photo upload
+      // Letter head upload
+      {
+        path: "review",
+        element: <ReviewSuccessPage />,
+      },
+      {
+        path: "complete",
+        element: <OnboardingCompletePage />,
+      },
+      
     ],
   },
   {
