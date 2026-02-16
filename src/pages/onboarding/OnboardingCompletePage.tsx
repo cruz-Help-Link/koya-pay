@@ -1,3 +1,4 @@
+import { Smile } from "lucide-react";
 import { Button } from "../../components/ui";
 import { Container } from '../../components/ui/Container';
 
@@ -25,9 +26,7 @@ export const OnboardingCompletePage: React.FC<OnboardingCompletePageProps> = ({
             {/* Success Icon */}
             <div className="flex justify-center mb-6">
               <div className="w-24 h-24 bg-[#221144]/10 rounded-full flex items-center justify-center">
-                <svg className="w-16 h-16 text-[#221144]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <Smile className="w-16 h-16 text-[#221144]" />
               </div>
             </div>
 

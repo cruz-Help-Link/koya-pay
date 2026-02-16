@@ -10,7 +10,7 @@ export const CompanyVerificationSuccessPage = () => {
   };
 
   const handleSkip = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleNext = () => {

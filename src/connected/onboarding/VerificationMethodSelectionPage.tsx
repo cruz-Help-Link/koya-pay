@@ -14,7 +14,7 @@ export const VerificationMethodSelectionPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/');
   };
 
   const handleNext = () => {

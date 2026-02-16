@@ -10,7 +10,7 @@ export const CompanyCACDetailsFormPage = () => {
   };
 
   const handleSkip = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleNext = () => {

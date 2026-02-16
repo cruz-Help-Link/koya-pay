@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { Button } from '../../components/ui';
+import { ArrowLeft, Mail } from 'lucide-react';
+import { Button, StepNavigation } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
 interface BusinessContactOTPPageProps {
@@ -76,9 +77,7 @@ export const BusinessContactOTPPage: React.FC<BusinessContactOTPPageProps> = ({
           onClick={onSkip}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
         {/* Logo */}
@@ -98,10 +97,7 @@ export const BusinessContactOTPPage: React.FC<BusinessContactOTPPageProps> = ({
         <div className="mb-8">
           <div className="relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
+              <Mail className="w-6 h-6" />
             </div>
             <input
               type="text"
@@ -161,35 +157,12 @@ export const BusinessContactOTPPage: React.FC<BusinessContactOTPPageProps> = ({
           </Button>
 
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-6 mt-6">
-            <button
-              onClick={onSkip}
-              className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
-            >
-              SKIP
-            </button>
-
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalSteps }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 rounded-full transition-all duration-200 ${
-                    index === currentStep - 1
-                      ? 'bg-[#221144] w-8'
-                      : 'bg-gray-300 w-2'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={onNext}
-              className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
-            >
-              NEXT
-            </button>
-          </div>
+          <StepNavigation
+            totalSteps={totalSteps}
+            currentStep={currentStep}
+            onNext={onNext}
+            onSkip={onSkip}
+          />
         </div>
       </div>
     </Container>

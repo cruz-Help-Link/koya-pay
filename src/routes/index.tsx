@@ -26,6 +26,9 @@ import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
+import { LoginScreen } from '../screens/LoginScreen';
+import { ForgotPasswordScreen } from '../screens/ForgotPasswordScreen';
+import { ForgotPasswordOTPScreen } from '../screens/ForgotPasswordOTPScreen';
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +38,22 @@ export const router = createBrowserRouter([
   {
     path: '/welcome',
     element: <KoyaPayLogin />,
+  },
+  {
+    path: '/login',
+    element: <LoginScreen />,
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPasswordScreen />,
+  },
+  {
+    path: '/forgot-password/otp',
+    element: <ForgotPasswordOTPScreen />,
+  },
+  {
+    path: '/forgot-password/create-new-password',
+    element: <CreateNewPasswordScreen />,
   },
   {
     path: '/signup',

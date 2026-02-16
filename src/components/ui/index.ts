@@ -5,3 +5,6 @@ export { Card } from './Card';
 export { OTPInput } from './OTPInput';
 export { FileUpload } from './FileUpload';
 export { ImageEditor } from './ImageEditor';
+export { StepNavigation } from './StepNavigation';
+export { Container } from './Container';
+export { SocialButton } from './SocialButton';

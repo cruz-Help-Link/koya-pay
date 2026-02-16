@@ -13,7 +13,7 @@ export const OwnerDetailsFormPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/');
   };
 
   const handleNext = () => {

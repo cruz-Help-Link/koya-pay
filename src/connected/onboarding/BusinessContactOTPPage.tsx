@@ -14,7 +14,7 @@ export const BusinessContactOTPPage = () => {
   };
 
   const handleSkip = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleNext = () => {

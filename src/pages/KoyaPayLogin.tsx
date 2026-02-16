@@ -30,7 +30,7 @@ const KoyaPayLogin: React.FC = () => {
               {/* Login Account Button */}
               <button
                 className="w-full py-4 lg:py-5 px-6 bg-white/40 backdrop-blur-sm text-gray-900 font-semibold rounded-full border-2 border-gray-900/20 hover:bg-white/60 transition-all duration-200 text-base lg:text-lg shadow-md hover:shadow-lg"
-                onClick={() => alert('Login functionality coming soon!')}
+                onClick={() => navigate('/login')}
               >
                 Login Account
               </button>

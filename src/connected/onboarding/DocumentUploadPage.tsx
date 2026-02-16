@@ -26,7 +26,7 @@ export const DocumentUploadPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/');
   };
 
   const handleNext = () => {

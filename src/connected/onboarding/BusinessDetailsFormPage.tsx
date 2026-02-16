@@ -13,7 +13,7 @@ export const BusinessDetailsFormPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/');
   };
 
   const handleNext = () => {

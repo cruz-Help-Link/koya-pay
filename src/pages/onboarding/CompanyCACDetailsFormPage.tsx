@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Button } from '../../components/ui';
+import { ArrowLeft, FileText, User, Globe, CreditCard } from 'lucide-react';
+import { Button, StepNavigation } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
 interface CompanyCACDetails {
@@ -72,9 +73,7 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           onClick={onSkip}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
         {/* Logo */}
@@ -99,9 +98,7 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
+                <FileText className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -120,9 +117,7 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
+                <User className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -141,9 +136,7 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clipRule="evenodd" />
-                </svg>
+                <Globe className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -162,10 +155,7 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
-                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
-                </svg>
+                <CreditCard className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -189,35 +179,12 @@ export const CompanyCACDetailsFormPage: React.FC<CompanyCACDetailsFormPageProps>
           </Button>
 
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-6 mt-6">
-            <button
-              onClick={onSkip}
-              className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
-            >
-              SKIP
-            </button>
-
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalSteps }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 rounded-full transition-all duration-200 ${
-                    index === currentStep - 1
-                      ? 'bg-[#221144] w-8'
-                      : 'bg-gray-300 w-2'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={onNext}
-              className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
-            >
-              NEXT
-            </button>
-          </div>
+          <StepNavigation
+            totalSteps={totalSteps}
+            currentStep={currentStep}
+            onNext={onNext}
+            onSkip={onSkip}
+          />
         </div>
       </div>
     </Container>

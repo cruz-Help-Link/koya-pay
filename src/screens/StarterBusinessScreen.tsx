@@ -1,6 +1,7 @@
 // screens/StarterBusinessScreen.tsx
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, User, Mail, Eye, EyeOff } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
@@ -75,9 +76,7 @@ export const StarterBusinessScreen: React.FC = () => {
           onClick={() => navigate('/signup/account-type')}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
         {/* Logo - using the alternative logo design */}

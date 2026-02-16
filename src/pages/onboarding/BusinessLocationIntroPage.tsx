@@ -1,4 +1,5 @@
-import { Button } from "../../components/ui";
+import { ArrowLeft } from "lucide-react";
+import { Button, StepNavigation } from "../../components/ui";
 import { Container } from '../../components/ui/Container';
 
 interface BusinessLocationIntroPageProps {
@@ -24,9 +25,7 @@ export const BusinessLocationIntroPage: React.FC<BusinessLocationIntroPageProps>
           onClick={onSkip}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
         {/* Logo */}
@@ -62,35 +61,12 @@ export const BusinessLocationIntroPage: React.FC<BusinessLocationIntroPageProps>
           </Button>
 
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-6 mt-6">
-            <button
-              onClick={onSkip}
-              className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
-            >
-              SKIP
-            </button>
-
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalSteps }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 rounded-full transition-all duration-200 ${
-                    index === currentStep - 1
-                      ? 'bg-[#221144] w-8'
-                      : 'bg-gray-300 w-2'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={onNext}
-              className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
-            >
-              NEXT
-            </button>
-          </div>
+          <StepNavigation
+            totalSteps={totalSteps}
+            currentStep={currentStep}
+            onNext={onNext}
+            onSkip={onSkip}
+          />
         </div>
       </div>
     </Container>

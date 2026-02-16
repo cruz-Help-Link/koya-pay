@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Button } from '../../components/ui';
+import { ArrowLeft, Building, Globe, Mail, Camera } from 'lucide-react';
+import { Button, StepNavigation } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
 interface BusinessDetails {
@@ -81,9 +82,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           onClick={onSkip}
           className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
         {/* Logo */}
@@ -108,9 +107,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
+                <Building className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -129,9 +126,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd" />
-                </svg>
+                <Globe className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -150,10 +145,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
+                <Mail className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -172,9 +164,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                </svg>
+                <Camera className="w-6 h-6" />
               </div>
               <input
                 type="text"
@@ -217,35 +207,12 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           </Button>
 
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-6 mt-6">
-            <button
-              onClick={onSkip}
-              className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
-            >
-              SKIP
-            </button>
-
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalSteps }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 rounded-full transition-all duration-200 ${
-                    index === currentStep - 1
-                      ? 'bg-[#221144] w-8'
-                      : 'bg-gray-300 w-2'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={onNext}
-              className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
-            >
-              NEXT
-            </button>
-          </div>
+          <StepNavigation
+            totalSteps={totalSteps}
+            currentStep={currentStep}
+            onNext={onNext}
+            onSkip={onSkip}
+          />
         </div>
       </div>
     </Container>

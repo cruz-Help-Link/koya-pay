@@ -17,7 +17,7 @@ export const BusinessLocationIntroPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/complete');
+    navigate('/');
   };
 
   return (

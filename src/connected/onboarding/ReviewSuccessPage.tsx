@@ -15,7 +15,7 @@ export const ReviewSuccessPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/onboarding/company-verification-intro');
+    navigate('/');
   };
 
   return (
