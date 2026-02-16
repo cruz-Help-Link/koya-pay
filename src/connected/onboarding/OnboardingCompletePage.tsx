@@ -8,7 +8,7 @@ export const OnboardingCompletePage = () => {
 
   const handleGoToDashboard = () => {
     reset();
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (

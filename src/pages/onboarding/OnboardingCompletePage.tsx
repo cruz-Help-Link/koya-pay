@@ -10,7 +10,7 @@ export const OnboardingCompletePage: React.FC<OnboardingCompletePageProps> = ({
   onGoToDashboard,
 }) => {
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Logo */}
         <div className="flex flex-col items-center">
