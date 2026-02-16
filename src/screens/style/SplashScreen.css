@@ -1,0 +1,82 @@
+/* SplashScreen.css */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bubble-top {
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  30% { transform: translateX(-50%) translateY(calc(7rem + 50%)); opacity: 0.3; }
+  50% { transform: translateX(-50%) translateY(calc(7rem + 50%)); opacity: 0; }
+  80% { transform: translateX(-50%) translateY(0); opacity: 0.8; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes bubble-right {
+  0% { transform: translateY(-50%) translateX(0); opacity: 1; }
+  30% { transform: translateY(-50%) translateX(calc(-7rem - 50%)); opacity: 0.3; }
+  50% { transform: translateY(-50%) translateX(calc(-7rem - 50%)); opacity: 0; }
+  80% { transform: translateY(-50%) translateX(0); opacity: 0.8; }
+  100% { transform: translateY(-50%) translateX(0); opacity: 1; }
+}
+
+@keyframes bubble-bottom {
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  30% { transform: translateX(-50%) translateY(calc(-7rem - 50%)); opacity: 0.3; }
+  50% { transform: translateX(-50%) translateY(calc(-7rem - 50%)); opacity: 0; }
+  80% { transform: translateX(-50%) translateY(0); opacity: 0.8; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes bubble-left {
+  0% { transform: translateY(-50%) translateX(0); opacity: 1; }
+  30% { transform: translateY(-50%) translateX(calc(7rem + 50%)); opacity: 0.3; }
+  50% { transform: translateY(-50%) translateX(calc(7rem + 50%)); opacity: 0; }
+  80% { transform: translateY(-50%) translateX(0); opacity: 0.8; }
+  100% { transform: translateY(-50%) translateX(0); opacity: 1; }
+}
+
+@keyframes circle-pulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.05); }
+  50% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes text-pop {
+  0% { opacity: 0; transform: scale(0.5); }
+  30% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 1; transform: scale(1); }
+  85% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.animate-bubble-top {
+  animation: bubble-top 1.2s ease-in-out forwards;
+}
+
+.animate-bubble-right {
+  animation: bubble-right 1.2s ease-in-out forwards;
+}
+
+.animate-bubble-bottom {
+  animation: bubble-bottom 1.2s ease-in-out forwards;
+}
+
+.animate-bubble-left {
+  animation: bubble-left 1.2s ease-in-out forwards;
+}
+
+.animate-circle-pulse {
+  animation: circle-pulse 1.2s ease-in-out;
+}
+
+.animate-text-pop {
+  animation: text-pop 1.2s ease-in-out;
+}
