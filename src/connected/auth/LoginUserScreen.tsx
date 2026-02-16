@@ -1,4 +1,4 @@
-import { LoginScreen as LoginScreenComponent } from "../../screens/auth/LoginScreen";
+import { LoginScreen as LoginScreenComponent } from "../../screens/LoginScreen";
 
 export const LoginUserScreen = () => {
   // For now, the component handles its own state

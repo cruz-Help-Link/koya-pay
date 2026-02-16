@@ -40,7 +40,7 @@ export const LoginScreen: React.FC = () => {
   };
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
         {/* Back Arrow */}
         <button
@@ -121,15 +121,16 @@ export const LoginScreen: React.FC = () => {
           </div>
 
           {/* Forgot Password */}
-          <div className="text-right">
-            <button
-              type="button"
-              onClick={() => navigate('/forgot-password')}
-              className="text-sm text-[#221144] font-semibold hover:underline"
-            >
-              Forgot Password?
-            </button>
-          </div>
+        <div className="text-right">
+          <button
+            type="button"
+            onClick={() => navigate("/forgot-password")}
+            className="text-sm text-[#221144] font-semibold hover:underline"
+          >
+            Forgot Password?
+          </button>
+        </div>
+
 
           <div className="pt-4">
             <Button type="submit" variant="primary" fullWidth>
@@ -139,7 +140,7 @@ export const LoginScreen: React.FC = () => {
         </form>
 
         {/* Social Auth */}
-        <div className="mt-8">
+        <div className="mt-4">
           <div className="flex items-center justify-center mb-6">
             <div className="flex-1 h-px bg-gray-300"></div>
             <span className="px-4 text-sm text-gray-500">Or login with</span>
@@ -154,8 +155,7 @@ export const LoginScreen: React.FC = () => {
             Don't have an account?{" "}
             <button
               onClick={() => navigate('/signup')}
-              className="text-[#221144] font-semibold hover:underline"
-            >
+              className="text-[#221144] font-semibold hover:underline">
               Sign Up
             </button>
           </p>
