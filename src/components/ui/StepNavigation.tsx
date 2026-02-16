@@ -1,10 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface StepNavigationProps {
   totalSteps: number;
   currentStep: number;
   onNext: () => void;
-  onSkip: () => void;
+  onSkip?: () => void;
 }
 
 export const StepNavigation: React.FC<StepNavigationProps> = ({
@@ -13,11 +14,20 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
   onNext,
   onSkip,
 }) => {
+  const navigate = useNavigate();
+
+  const handleSkip = () => {
+    if (onSkip) {
+      onSkip();
+    }
+    navigate('/dashboard');
+  };
+
   return (
     <div className="flex items-center justify-center gap-6 mt-6">
       {/* Skip Button */}
       <button
-        onClick={onSkip}
+        onClick={handleSkip}
         className="text-sm text-gray-600 font-medium hover:text-gray-800 transition-colors"
       >
         SKIP
@@ -31,7 +41,6 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
             className={`h-2 rounded-full transition-all ${
               i === currentStep ? "w-8 bg-[#221144]" : "w-2 bg-gray-300"
             }`}
-            style={i === activeStep ? { backgroundColor: activeColor } : undefined}
           />
         ))}
       </div>
@@ -39,7 +48,6 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
       {/* Next Button */}
       <button
         onClick={onNext}
-        className="font-medium"
         className="text-sm text-[#221144] font-medium hover:text-[#1a0d33] transition-colors"
       >
         NEXT
