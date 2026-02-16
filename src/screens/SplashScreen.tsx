@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import primaryLogo from '../assets/logo/primary.png';
+import NewLogo from '../assets/logo/Koyapay-NewLogo.png';
 
 export const SplashScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -39,9 +39,9 @@ export const SplashScreen: React.FC = () => {
       {showLogo && (
         <div className="flex items-center justify-center animate-fade-in">
           <img
-            src={primaryLogo}
+            src={NewLogo}
             alt="KoyaPay"
-            className="w-[450px] h-auto object-contain"
+            className="w-[1000px] h-auto object-contain"
           />
         </div>
       )}
