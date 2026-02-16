@@ -30,44 +30,45 @@ export const StarterBusinessScreen: React.FC = () => {
     country: countries[0],
   });
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
+ const validateForm = () => {
+   const newErrors: Record<string, string> = {};
 
+   if (!formData.fullName.trim()) {
+     newErrors.fullName = "Full name is required";
+   }
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
+   if (!formData.email.trim()) {
+     newErrors.email = "Email is required";
+   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+     newErrors.email = "Please enter a valid email";
+   }
 
-    
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-    
-    if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
-      newErrors.password = "Password must include uppercase, lowercase, and number";
-    }
-    
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = "Please confirm your password";
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+   if (!formData.password) {
+     newErrors.password = "Password is required";
+   } else if (formData.password.length < 8) {
+     newErrors.password = "Password must be at least 8 characters";
+   } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
+     newErrors.password =
+       "Password must include uppercase, lowercase, and number";
+   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      navigate('/signup/verify-email');
-    }
-  };
+   if (!formData.confirmPassword) {
+     newErrors.confirmPassword = "Please confirm your password";
+   } else if (formData.password !== formData.confirmPassword) {
+     newErrors.confirmPassword = "Passwords do not match";
+   }
+
+   setErrors(newErrors);
+   return Object.keys(newErrors).length === 0;
+ };
+
+ const handleSubmit = (e: React.FormEvent) => {
+   e.preventDefault();
+   if (validateForm()) {
+     navigate("/signup/verify-email");
+   }
+ };
+
 
   return (
     <Container overlayIntensity="medium">
@@ -96,7 +97,7 @@ export const StarterBusinessScreen: React.FC = () => {
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <PersonStanding />
+                <User />
               </div>
               <input
                 type="text"
@@ -233,8 +234,7 @@ export const StarterBusinessScreen: React.FC = () => {
           </div>
 
           <div className="pt-4">
-            <Button type="submit" variant="primary" fullWidth
-            onClick={handleSubmit}>
+            <Button type="submit" variant="primary" fullWidth>
               Create Account
             </Button>
           </div>
