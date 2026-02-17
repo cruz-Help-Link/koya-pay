@@ -1,24 +1,18 @@
-import DashHeader from "../dashboard/DashHeader";
+import { useNavigate } from "react-router-dom";
 import ProcessedCard from "../dashboard/ProcessedCard";
 import { Button } from "../components/ui";
 import { ListContainer } from "../dashboard/ListContainer";
-import BottomNavigation from "../dashboard/BottomNavigation";
 import { recentTransactions } from "../utils/transaction";
 import TransactionItem from "../dashboard/TransactionItem";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#c9b8ff] flex flex-col">
-      {/* Header
-      <DashHeader />
-       */}
-
-      {/* Scrollable Content */}
       <main className="flex-1 overflow-y-auto pb-28 pt-[104px]">
-        {/* Processed Card */}
         <ProcessedCard />
 
-        {/* Action Buttons */}
         <div className="px-5 mt-4 flex gap-3 max-w-lg lg:max-w-5xl mx-auto w-full">
           <Button
             variant="secondary"
@@ -27,7 +21,6 @@ export default function Dashboard() {
           >
             View Invoice
           </Button>
-
           <Button
             variant="primary"
             fullWidth
@@ -37,11 +30,10 @@ export default function Dashboard() {
           </Button>
         </div>
 
-        {/* Recent Transactions */}
         <ListContainer
           title="Recent transactions"
           actionText="View all transactions"
-          onActionClick={() => console.log("Navigate to transactions")}
+          onActionClick={() => navigate("/dashboard/transactions")}
         >
           {recentTransactions.map((tx) => (
             <TransactionItem
