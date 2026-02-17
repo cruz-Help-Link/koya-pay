@@ -45,13 +45,14 @@ export const VerifyEmailChangePassword: React.FC = () => {
 
   const handleVerify = () => {
     setIsVerifying(true);
+    
   };
 
   if (isVerifying) {
     return (
       <LoadingBar
         duration={3000}
-        onComplete={() => navigate("/change-password")}
+        onComplete={() => navigate("/create-new-password")}
       />
     );
   }
