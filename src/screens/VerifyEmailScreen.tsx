@@ -29,6 +29,7 @@ export const VerifyEmailScreen: React.FC = () => {
     newOtp[index] = value;
     setOtp(newOtp);
 
+    // Auto-focus next input
     if (value && index < 5) {
       inputRefs.current[index + 1]?.focus();
     }
