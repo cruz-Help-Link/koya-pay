@@ -32,6 +32,7 @@ import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
 import Dashboard from '../pages/Dashboard';
 import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
 import DashboardLayout from '../layouts/DashboardLayout';
+import TransactionsScreen from "../pages/TransactionsScreen";
 
 
 export const router = createBrowserRouter([
@@ -40,23 +41,23 @@ export const router = createBrowserRouter([
     element: <SplashScreen />,
   },
   {
-    path: "/welcome",
+    path: "welcome",
     element: <KoyaPayLogin />,
   },
   {
-    path: "/login",
+    path: "login",
     element: <LoginUserScreen />,
   },
   {
-    path: "/forgot-password",
+    path: "forgot-password",
     element: <ForgotPasswordScreen />,
   },
   {
-    path: "/verify-reset-password",
+    path: "verify-reset-password",
     element: <VerifyEmailChangePassword />,
   },
   {
-    path: "/create-new-password",
+    path: "create-new-password",
     element: <CreateNewPasswordScreen />,
   },
   {
@@ -86,10 +87,6 @@ export const router = createBrowserRouter([
       {
         path: "verify-email",
         element: <VerifyEmailScreen />,
-      },
-      {
-        path: 'create-new-password',
-        element: <CreateNewPasswordScreen />,
       },
     ],
   },
@@ -170,7 +167,12 @@ export const router = createBrowserRouter([
       {
         path: 'home',
         element: <Dashboard />,
-      }
+      },
+      {
+        path: 'transactions',
+        element: <TransactionsScreen />,
+      },
+      //CREATE RECEIPT
     ],
   },
   {
