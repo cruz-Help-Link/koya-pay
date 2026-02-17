@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/Button";
 import { Container } from "../components/ui/Container";
 import Logo from "../components/Logo";
+import { ArrowLeft, Check, Eye, EyeOff, Lock } from "lucide-react";
 
 export const CreateNewPasswordScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ export const CreateNewPasswordScreen: React.FC = () => {
 
   if (showSuccess) {
     return (
-      <Container overlayIntensity="medium">
+      <Container>
         <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
 
                <Logo />
@@ -59,8 +60,8 @@ export const CreateNewPasswordScreen: React.FC = () => {
             <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
               {/* Success Icon - Checkmark */}
               <div className="flex justify-center mb-6">
-                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-                  <Check className="w-16 h-16 text-green-600" strokeWidth={3} />
+                <div className="w-24 h-24 bg-[#AE92FF] rounded-full flex items-center justify-center">
+                  <Check className="w-16 h-16 text-[#221644]" strokeWidth={3} />
                 </div>
               </div>
 
@@ -90,7 +91,7 @@ export const CreateNewPasswordScreen: React.FC = () => {
   }
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
         {/* Back Arrow */}
         <button
