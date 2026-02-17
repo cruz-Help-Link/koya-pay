@@ -1,5 +1,4 @@
 import { Banknote, Download, Landmark, Send } from "lucide-react";
-import { T } from "../utils/color";
 
 const TransactionIconMap = {
   send: Send,
@@ -8,7 +7,6 @@ const TransactionIconMap = {
   bank: Landmark,
 };
 
-/* ---------------- TYPES ---------------- */
 
 interface TransactionItemProps {
   name: string;
@@ -17,7 +15,6 @@ interface TransactionItemProps {
   icon: keyof typeof TransactionIconMap;
 }
 
-/* ---------------- COMPONENT ---------------- */
 
 function  TransactionItem({ name, time, amount, icon }: TransactionItemProps) {
   const Icon = TransactionIconMap[icon] || Send;
