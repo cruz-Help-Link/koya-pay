@@ -1,7 +1,7 @@
 // screens/RegisteredBusinessScreen.tsx
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Building, Mail, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, User, Mail, Eye, EyeOff } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
@@ -100,7 +100,7 @@ export const RegisteredBusinessScreen: React.FC = () => {
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <Building className="w-6 h-6" />
+                <User className="w-6 h-6" />
               </div>
               <input
                 type="text"

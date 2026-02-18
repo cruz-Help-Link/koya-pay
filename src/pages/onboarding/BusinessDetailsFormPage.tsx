@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Building, Globe, Mail, Camera } from 'lucide-react';
+import { ArrowLeft, User, Globe, Mail, Camera } from 'lucide-react';
 import { Button, StepNavigation } from '../../components/ui';
 import { Container } from '../../components/ui/Container';
 
@@ -107,7 +107,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <Building className="w-6 h-6" />
+                <User className="w-6 h-6" />
               </div>
               <input
                 type="text"

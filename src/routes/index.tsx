@@ -6,6 +6,7 @@ import {
 } from '../connected/signup';
 import {
   OnboardingIntroPage,
+  OwnerVerificationIntroSuccessPage,
   OwnerDetailsFormPage,
   BusinessDetailsFormPage,
   BusinessLocationIntroPage,
@@ -18,6 +19,7 @@ import {
   ExecutiveVerificationFormPage,
   BusinessContactOTPPage,
   CompanyVerificationSuccessPage,
+  DocumentUploadSuccessPage,
 } from '../connected/onboarding';
 import KoyaPayLogin from '../pages/KoyaPayLogin';
 import OnboardingLayout from '../layouts/OnboardingLayout';
@@ -25,10 +27,12 @@ import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
+import { StarterBusinessSuccessScreen } from '../screens/StarterBusinessSuccessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { ForgotPasswordScreen } from '../screens/ForgotPasswordScreen';
 import { ForgotPasswordOTPScreen } from '../screens/ForgotPasswordOTPScreen';
+import { CreateInvoiceScreen } from '../screens/CreateInvoiceScreen';
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +58,10 @@ export const router = createBrowserRouter([
   {
     path: '/forgot-password/create-new-password',
     element: <CreateNewPasswordScreen />,
+  },
+  {
+    path: '/create-invoice',
+    element: <CreateInvoiceScreen />,
   },
   {
     path: '/signup',
@@ -84,6 +92,10 @@ export const router = createBrowserRouter([
         element: <VerifyEmailScreen />,
       },
       {
+        path: 'starter-success',
+        element: <StarterBusinessSuccessScreen />,
+      },
+      {
         path: 'create-new-password',
         element: <CreateNewPasswordScreen />,
       },
@@ -100,6 +112,10 @@ export const router = createBrowserRouter([
       {
         path: 'intro',
         element: <OnboardingIntroPage />,
+      },
+      {
+        path: 'owner-verification-intro-success',
+        element: <OwnerVerificationIntroSuccessPage />,
       },
       {
         path: 'owner-details',
@@ -124,6 +140,10 @@ export const router = createBrowserRouter([
       {
         path: 'review',
         element: <ReviewSuccessPage />,
+      },
+      {
+        path: 'document-upload-success',
+        element: <DocumentUploadSuccessPage />,
       },
       {
         path: 'complete',

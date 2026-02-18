@@ -1,11 +1,13 @@
 import { Smile } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 
-interface ReviewSuccessPageProps {
+interface DocumentUploadSuccessPageProps {
   onContinue: () => void;
 }
 
-export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({ onContinue }) => {
+export const DocumentUploadSuccessPage: React.FC<DocumentUploadSuccessPageProps> = ({
+  onContinue,
+}) => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#3D1B6B] via-[#6B46C1] to-[#9575CD] flex flex-col items-center justify-between px-6 py-20">
       {/* Logo - consistent with other screens */}
@@ -24,13 +26,14 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({ onContinue
 
         {/* Success Text */}
         <div className="text-center space-y-4 mb-12">
-          <h1 className="text-4xl font-bold text-white">
+          <h1 className="text-5xl font-bold text-white">
             Successful
           </h1>
 
           {/* Verification Message */}
-          <p className="text-lg text-white text-center px-4">
-            Owner's verification complete!
+          <p className="text-xl text-white text-center px-4">
+            You're fully verified 🎉<br/>
+            Limits lifted
           </p>
         </div>
       </div>
@@ -42,7 +45,7 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({ onContinue
           fullWidth
           onClick={onContinue}
         >
-          Continue
+          Dashboard
         </Button>
       </div>
     </div>

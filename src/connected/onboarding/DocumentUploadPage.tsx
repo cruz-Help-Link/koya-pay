@@ -22,16 +22,17 @@ export const DocumentUploadPage = () => {
   const handleUploadComplete = (file: File) => {
     uploadDocument(verificationMethod || 'document', file);
     goToNextStep();
-    navigate('/onboarding/review');
+    // Navigate to success page after upload
+    navigate('/onboarding/document-upload-success');
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate('/onboarding/document-upload-success');
   };
 
   const handleNext = () => {
     goToNextStep();
-    navigate('/onboarding/review');
+    navigate('/onboarding/document-upload-success');
   };
 
   return (

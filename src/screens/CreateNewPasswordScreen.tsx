@@ -60,24 +60,27 @@ export const CreateNewPasswordScreen: React.FC = () => {
             </div>
           </div>
 
+          {/* Header */}
+          <div className="text-center mt-12 mb-6">
+            <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Create New Password</h1>
+            <p className="text-sm text-gray-600">New password confirmed</p>
+          </div>
+
           {/* Success Content */}
           <div className="flex-1 flex items-center justify-center">
             <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
-              {/* Success Icon - Checkmark */}
+              {/* Success Icon - Checkmark in purple circle */}
               <div className="flex justify-center mb-6">
-                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-                  <Check className="w-16 h-16 text-green-600" strokeWidth={3} />
+                <div className="w-24 h-24 bg-[#AE92FF]/30 rounded-full flex items-center justify-center">
+                  <Check className="w-16 h-16 text-[#221144]" strokeWidth={3} />
                 </div>
               </div>
 
               {/* Success Message */}
               <div className="text-center space-y-2 mb-8">
-                <h2 className="text-2xl font-bold text-[#1a1a1a]">
-                  Password Created Successfully
+                <h2 className="text-lg font-semibold text-[#1a1a1a]">
+                  Your Password has been successfully changed
                 </h2>
-                <p className="text-gray-600">
-                  Your new password has been set. You can now login with your new password.
-                </p>
               </div>
 
               {/* Action Button */}
@@ -86,7 +89,7 @@ export const CreateNewPasswordScreen: React.FC = () => {
                 fullWidth
                 onClick={handleContinueToLogin}
               >
-                Continue to Login
+                Proceed with New Password
               </Button>
             </div>
           </div>

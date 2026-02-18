@@ -8,7 +8,8 @@ export const OnboardingIntroPage = () => {
 
   const handleStart = () => {
     goToNextStep();
-    navigate('/onboarding/owner-details');
+    // Show success page first before going to owner details
+    navigate('/onboarding/owner-verification-intro-success');
   };
 
   const handleSkip = () => {

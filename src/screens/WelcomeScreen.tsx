@@ -18,11 +18,11 @@ export const WelcomeScreen: React.FC = () => {
         {/* Logo Section - EXACT SAME CODE AS ACCOUNT TYPE PAGE */}
         <div className="flex flex-col items-center mb-16">
           <img 
-            src='/src/assets/logo/koyapay-logo.png' 
-            className='w-20 h-20 object-contain -mb-8' 
+            src='/src/assets/logo/logo.png' 
+            className='w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain -mb-8' 
             alt="KoyaPay" 
           />
-          <div className="text-2xl font-semibold mt-6">
+          <div className="text-2xl md:text-3xl font-semibold mt-6">
             <span className="text-gray-400">Koya</span>
             <span className="text-black">Pay</span>
           </div>
@@ -32,7 +32,7 @@ export const WelcomeScreen: React.FC = () => {
         {/* CTA Buttons */}
         <div className="space-y-4">
           <button
-            onClick={() => alert('Login functionality coming soon!')}
+            onClick={() => navigate('/login')}
             className="w-full bg-white border-2 border-[#221144] text-[#221144] py-4 px-8 rounded-2xl font-semibold text-lg hover:bg-[#e5deff] transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
           >
             Login Account
