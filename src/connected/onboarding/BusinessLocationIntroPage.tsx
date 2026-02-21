@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-import { BusinessLocationIntroPage as BusinessLocationIntroPageComponent } from '../../pages/onboarding';
-import { useOnboardingStore } from '../../stores';
+import { useNavigate } from "react-router-dom";
+import { BusinessLocationIntroPage as BusinessLocationIntroPageComponent } from "../../screens/onboarding";
+import { useOnboardingStore } from "../../stores";
 
 export const BusinessLocationIntroPage = () => {
   const navigate = useNavigate();
@@ -8,16 +8,16 @@ export const BusinessLocationIntroPage = () => {
 
   const handleStart = () => {
     goToNextStep();
-    navigate('/onboarding/verification-method');
+    navigate("/onboarding/verification-method");
   };
 
   const handleNext = () => {
     goToNextStep();
-    navigate('/onboarding/verification-method');
+    navigate("/onboarding/verification-method");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (

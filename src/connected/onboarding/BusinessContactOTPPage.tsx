@@ -1,24 +1,24 @@
-import { useNavigate } from 'react-router-dom';
-import { BusinessContactOTPPage as BusinessContactOTPPageComponent } from '../../pages/onboarding';
+import { useNavigate } from "react-router-dom";
+import { BusinessContactOTPPage as BusinessContactOTPPageComponent } from "../../screens/onboarding";
 
 export const BusinessContactOTPPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (otp: string) => {
-    console.log('OTP submitted:', otp);
-    navigate('/onboarding/company-verification-success');
+    console.log("OTP submitted:", otp);
+    navigate("/onboarding/company-verification-success");
   };
 
   const handleResend = () => {
-    console.log('Resending OTP...');
+    console.log("Resending OTP...");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const handleNext = () => {
-    navigate('/onboarding/company-verification-success');
+    navigate("/onboarding/company-verification-success");
   };
 
   return (
