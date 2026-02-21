@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-import { OwnerDetailsFormPage as OwnerDetailsFormPageComponent } from '../../pages/onboarding';
-import { useOnboardingStore } from '../../stores';
+import { useNavigate } from "react-router-dom";
+import { OwnerDetailsFormPage as OwnerDetailsFormPageComponent } from "../../screens/onboarding";
+import { useOnboardingStore } from "../../stores";
 
 export const OwnerDetailsFormPage = () => {
   const navigate = useNavigate();
@@ -9,16 +9,16 @@ export const OwnerDetailsFormPage = () => {
   const handleContinue = (data: any) => {
     setOwnerDetails(data);
     goToNextStep();
-    navigate('/onboarding/business-details');
+    navigate("/onboarding/business-details");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const handleNext = () => {
     goToNextStep();
-    navigate('/onboarding/business-details');
+    navigate("/onboarding/business-details");
   };
 
   return (
