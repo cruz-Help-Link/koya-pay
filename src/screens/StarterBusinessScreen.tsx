@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, ChevronLeft, ChevronUp,ArrowLeft, User, Mail, Eye, EyeOff } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
+import { ChevronDown, ChevronLeft, ChevronUp, Eye, EyeOff, Mail, PersonStanding } from "lucide-react";
 import Logo from "../components/Logo";
 
 const countries = [
@@ -71,8 +71,8 @@ export const StarterBusinessScreen: React.FC = () => {
 
 
   return (
-    <Container overlayIntensity="medium">
-      <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
+    <Container>
+      <div className="flex flex-col min-h-screen px-6 pt-12 pb-12">
         {/* Back Arrow */}
         <button
           onClick={() => navigate('/signup/account-type')}
