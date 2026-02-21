@@ -1,11 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/Button";
-import { Container } from "../components/ui/Container";
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { Button } from '../components/ui/Button';
+import { Container } from '../components/ui/Container';
+import LoadingBar from './LoadingBar';
+import Logo from '../components/Logo';
 
 export const VerifyEmailScreen: React.FC = () => {
   const navigate = useNavigate();
-  const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
+  const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
+  const [timer, setTimer] = useState(59);
+  const [isVerifying, setIsVerifying] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   useEffect(() => {
@@ -65,6 +70,26 @@ export const VerifyEmailScreen: React.FC = () => {
             <span className="text-black">Pay</span>
           </div>
         </div>
+    setIsVerifying(true);
+  };
+
+  if (isVerifying) {
+    return <LoadingBar duration={3000} onComplete={() => navigate('/onboarding')} />;
+  }
+
+  return (
+    <Container>
+      <div className="flex flex-col min-h-screen px-6 pt-12 pb-12">
+        {/* Back Arrow */}
+        <button
+          onClick={() => navigate('/signup/register')}
+          className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
+        >
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
+        </button>
+
+               <Logo />
+
 
         <div className="mb-6">
           <h1 className="mb-1 text-2xl font-bold text-[#1a1a1a]">Verify Email</h1>
@@ -100,7 +125,14 @@ export const VerifyEmailScreen: React.FC = () => {
             </p>
           </div>
 
-          <Button variant="primary" fullWidth onClick={handleVerify} disabled={!isComplete}>
+        {/* Action Buttons */}
+        <div className="space-y-4 mt-4">
+          <Button
+            variant="primary"
+            fullWidth
+            disabled={otp.some((digit) => !digit)}
+            onClick={handleVerify}
+          >
             Verify
           </Button>
         </div>

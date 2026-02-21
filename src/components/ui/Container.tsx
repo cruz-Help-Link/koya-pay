@@ -1,22 +1,13 @@
 import React from 'react';
-
-type OverlayIntensity = 'light' | 'medium' | 'heavy';
+import bgDecoration from "../../assets/hand.jpg"; // 👈 your image path
 
 interface ContainerProps {
   children: React.ReactNode;
-  overlayIntensity?: OverlayIntensity;
   className?: string;
 }
 
-const overlayStyles: Record<OverlayIntensity, string> = {
-  light: 'bg-[#EDE7FF]/70',
-  medium: 'bg-[#E5DEFF]/85',
-  heavy: 'bg-[#DDD4FF]/92',
-};
-
 export const Container: React.FC<ContainerProps> = ({
   children,
-  overlayIntensity = 'medium',
   className = '',
 }) => {
   return (
@@ -28,6 +19,7 @@ export const Container: React.FC<ContainerProps> = ({
           <div className="absolute top-10 right-10 h-64 w-64 rounded-full bg-[#d6c7ff]/45 blur-3xl" />
           <div className="absolute bottom-20 left-10 h-80 w-80 rounded-full bg-[#b39de8]/30 blur-3xl" />
         </div>
+
       </div>
 
       {/* Brand Overlay Layer */}

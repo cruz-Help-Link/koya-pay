@@ -15,7 +15,6 @@ export const WelcomeScreen: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-md">
-        {/* Logo Section - EXACT SAME CODE AS ACCOUNT TYPE PAGE */}
         <div className="flex flex-col items-center mb-16">
           <img 
             src='/src/assets/logo/logo.png' 

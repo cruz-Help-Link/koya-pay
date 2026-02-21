@@ -9,6 +9,18 @@ export const CompanyVerificationSuccessPage = () => {
     navigate('/');
   };
 
+    // Navigate to dashboard after successful verification
+    navigate('/onboarding/location-intro');
+  };
+
+  const handleSkip = () => {
+    navigate('/');
+  };
+
+  const handleNext = () => {
+    navigate('/onboarding/location-intro');
+  };
+
   return (
     <CompanyVerificationSuccessPageComponent
       onContinue={handleContinue}

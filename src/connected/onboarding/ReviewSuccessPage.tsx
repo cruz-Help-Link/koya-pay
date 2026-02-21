@@ -5,7 +5,15 @@ export const ReviewSuccessPage = () => {
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    navigate('/onboarding/company-verification-intro');
+    navigate('/onboarding/complete');
+  };
+
+  const handleNext = () => {
+    navigate('/onboarding/complete');
+  };
+
+  const handleSkip = () => {
+    navigate('/');
   };
 
   return (

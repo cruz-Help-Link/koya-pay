@@ -1,10 +1,10 @@
-// screens/AccountTypeScreen.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SocialButton } from '../components/ui/SocialButton';
 import { Container } from '../components/ui/Container';
+import Logo from '../components/Logo';
 
 type AccountType = 'starter' | 'registered' | null;
 
@@ -20,7 +20,7 @@ export const AccountTypeScreen: React.FC = () => {
   };
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-24 pb-12">
         {/* Back Arrow */}
         <button
@@ -30,13 +30,8 @@ export const AccountTypeScreen: React.FC = () => {
           <ArrowLeft className="w-6 h-6 text-gray-600" />
         </button>
 
-        {/* Logo - using the alternative logo design */}
-        <div className=" flex flex-col items-center 0">
-          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
-          <div className="text-2xl font-semibold mt-6 ">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
-          </div>
-        </div>
+        <Logo />
+      
 
         {/* Header */}
         <div className="mt-12 mb-6">
