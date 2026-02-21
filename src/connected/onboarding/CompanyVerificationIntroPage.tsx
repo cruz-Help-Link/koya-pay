@@ -1,19 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import { CompanyVerificationIntroPage as CompanyVerificationIntroPageComponent } from '../../pages/onboarding';
+import { useNavigate } from "react-router-dom";
+import { CompanyVerificationIntroPage as CompanyVerificationIntroPageComponent } from "../../screens/onboarding";
 
 export const CompanyVerificationIntroPage = () => {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate('/onboarding/company-cac-details');
+    navigate("/onboarding/company-cac-details");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const handleNext = () => {
-    navigate('/onboarding/company-cac-details');
+    navigate("/onboarding/company-cac-details");
   };
 
   return (

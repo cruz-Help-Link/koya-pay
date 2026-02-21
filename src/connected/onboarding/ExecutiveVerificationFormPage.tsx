@@ -1,20 +1,20 @@
-import { useNavigate } from 'react-router-dom';
-import { ExecutiveVerificationFormPage as ExecutiveVerificationFormPageComponent } from '../../pages/onboarding';
+import { useNavigate } from "react-router-dom";
+import { ExecutiveVerificationFormPage as ExecutiveVerificationFormPageComponent } from "../../screens/onboarding";
 
 export const ExecutiveVerificationFormPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (data: any) => {
-    console.log('Executive Details:', data);
-    navigate('/onboarding/business-contact-otp');
+    console.log("Executive Details:", data);
+    navigate("/onboarding/business-contact-otp");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const handleNext = () => {
-    navigate('/onboarding/business-contact-otp');
+    navigate("/onboarding/business-contact-otp");
   };
 
   return (

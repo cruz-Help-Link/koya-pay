@@ -1,20 +1,20 @@
-import { useNavigate } from 'react-router-dom';
-import { CompanyCACDetailsFormPage as CompanyCACDetailsFormPageComponent } from '../../pages/onboarding';
+import { useNavigate } from "react-router-dom";
+import { CompanyCACDetailsFormPage as CompanyCACDetailsFormPageComponent } from "../../screens/onboarding";
 
 export const CompanyCACDetailsFormPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (data: any) => {
-    console.log('Company CAC Details:', data);
-    navigate('/onboarding/executive-verification');
+    console.log("Company CAC Details:", data);
+    navigate("/onboarding/executive-verification");
   };
 
   const handleSkip = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const handleNext = () => {
-    navigate('/onboarding/executive-verification');
+    navigate("/onboarding/executive-verification");
   };
 
   return (
