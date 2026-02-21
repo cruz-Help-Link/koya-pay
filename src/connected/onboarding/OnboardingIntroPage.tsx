@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { OnboardingIntroPage as OnboardingIntroPageComponent } from "../../screens/onboarding";
-import { useOnboardingStore } from "../../stores";
+import { useNavigate } from 'react-router-dom';
+import { OnboardingIntroPage as OnboardingIntroPageComponent } from '../../pages/onboarding';
+import { useOnboardingStore } from '../../stores';
 
 export const OnboardingIntroPage = () => {
   const navigate = useNavigate();
@@ -8,12 +8,11 @@ export const OnboardingIntroPage = () => {
 
   const handleStart = () => {
     goToNextStep();
-    // Show success page first before going to owner details
-    navigate("/onboarding/owner-verification-intro-success");
+    navigate('/onboarding/owner-details');
   };
 
   const handleSkip = () => {
-    navigate("/");
+    navigate('/dashboard/home');
   };
 
   return (

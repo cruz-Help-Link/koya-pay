@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { OnboardingCompletePage as OnboardingCompletePageComponent } from "../../screens/onboarding";
-import { useOnboardingStore } from "../../stores";
+import { useNavigate } from 'react-router-dom';
+import { OnboardingCompletePage as OnboardingCompletePageComponent } from '../../pages/onboarding';
+import { useOnboardingStore } from '../../stores';
 
 export const OnboardingCompletePage = () => {
   const navigate = useNavigate();
@@ -8,10 +8,12 @@ export const OnboardingCompletePage = () => {
 
   const handleGoToDashboard = () => {
     reset();
-    navigate("/dashboard");
+    navigate('/dashboard');
   };
 
   return (
-    <OnboardingCompletePageComponent onGoToDashboard={handleGoToDashboard} />
+    <OnboardingCompletePageComponent
+      onGoToDashboard={handleGoToDashboard}
+    />
   );
 };

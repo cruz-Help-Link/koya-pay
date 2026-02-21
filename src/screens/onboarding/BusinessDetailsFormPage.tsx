@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { ArrowLeft, User, Globe, Mail, Camera } from 'lucide-react';
-import { Button, StepNavigation } from '../../components/ui';
-import { Container } from '../../components/ui/Container';
+import { useState } from "react";
+import { ArrowLeft, Building, Globe, Mail, Camera } from "lucide-react";
+import { Button, StepNavigation } from "../../components/ui";
+import { Container } from "../../components/ui/Container";
 
 interface BusinessDetails {
   businessName: string;
@@ -19,31 +19,30 @@ interface BusinessDetailsFormPageProps {
   totalSteps?: number;
 }
 
-export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = ({
-  onSubmit,
-  onSkip,
-  onNext,
-  currentStep = 3,
-  totalSteps = 7,
-}) => {
+export const BusinessDetailsFormPage: React.FC<
+  BusinessDetailsFormPageProps
+> = ({ onSubmit, onSkip, onNext, currentStep = 3, totalSteps = 7 }) => {
   const [formData, setFormData] = useState<BusinessDetails>({
-    businessName: '',
-    website: '',
-    contactInfo: '',
+    businessName: "",
+    website: "",
+    contactInfo: "",
     logo: null,
-    description: '',
+    description: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const maxWords = 120;
-  const wordCount = formData.description.trim().split(/\s+/).filter(Boolean).length;
+  const wordCount = formData.description
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
 
-  const handleChange = (field: keyof BusinessDetails) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData(prev => ({ ...prev, [field]: e.target.value }));
-    setErrors(prev => ({ ...prev, [field]: '' }));
-  };
+  const handleChange =
+    (field: keyof BusinessDetails) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -87,9 +86,14 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
 
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
+          <img
+            src="/src/assets/logo/koyapay-logo.png"
+            className="w-20 h-20 object-contain -mb-8"
+            alt="KoyaPay"
+          />
           <div className="text-2xl font-semibold mt-6">
-            <span className="text-gray-400">Koya</span><span className="text-black">Pay</span>
+            <span className="text-gray-400">Koya</span>
+            <span className="text-black">Pay</span>
           </div>
         </div>
 
@@ -107,14 +111,14 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
           <div>
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <User className="w-6 h-6" />
+                <Building className="w-6 h-6" />
               </div>
               <input
                 type="text"
                 placeholder="Business Name"
                 className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
                 value={formData.businessName}
-                onChange={handleChange('businessName')}
+                onChange={handleChange("businessName")}
               />
             </div>
             {errors.businessName && (
@@ -133,7 +137,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
                 placeholder="Website/Social media"
                 className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
                 value={formData.website}
-                onChange={handleChange('website')}
+                onChange={handleChange("website")}
               />
             </div>
             {errors.website && (
@@ -152,7 +156,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
                 placeholder="Email/Phone No."
                 className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
                 value={formData.contactInfo}
-                onChange={handleChange('contactInfo')}
+                onChange={handleChange("contactInfo")}
               />
             </div>
             {errors.contactInfo && (
@@ -167,22 +171,40 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
                 <Camera className="w-6 h-6" />
               </div>
               <input
-                type="text"
-                placeholder="Business Logo"
-                className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
-                value={formData.logo ? formData.logo.name : ''}
-                readOnly
+                type="file"
+                accept="image/*"
+                id="logo-upload"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    setFormData({ ...formData, logo: file });
+                  }
+                }}
               />
+              <label
+                htmlFor="logo-upload"
+                className="flex items-center w-full pl-14 pr-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] transition-colors cursor-pointer"
+              >
+                <span
+                  className={
+                    formData.logo
+                      ? "text-[#1a1a1a] font-medium"
+                      : "text-gray-500 font-medium"
+                  }
+                >
+                  {formData.logo ? formData.logo.name : "Business Logo"}
+                </span>
+              </label>
             </div>
           </div>
-
           {/* Description Textarea */}
           <div>
             <div className="relative">
               <textarea
                 placeholder="Short Description (Tell us about your business...)"
                 value={formData.description}
-                onChange={handleChange('description')}
+                onChange={handleChange("description")}
                 rows={4}
                 className="w-full px-4 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors resize-none"
               />
@@ -198,11 +220,7 @@ export const BusinessDetailsFormPage: React.FC<BusinessDetailsFormPageProps> = (
 
         {/* Action Button */}
         <div className="space-y-4 mt-10">
-          <Button
-            variant="primary"
-            fullWidth
-            onClick={handleSubmitForm}
-          >
+          <Button variant="primary" fullWidth onClick={handleSubmitForm}>
             Submit for Review
           </Button>
 
