@@ -1,4 +1,3 @@
-// screens/StarterBusinessSuccessScreen.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Smile } from "lucide-react";
@@ -9,11 +8,11 @@ export const StarterBusinessSuccessScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const handleGoToDashboard = () => {
-    navigate('/');
+    navigate('/onboarding');
   };
 
   return (
-    <Container overlayIntensity="medium">
+    <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
         {/* Logo - consistent with other screens */}
         <div className="flex flex-col items-center">
