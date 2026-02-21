@@ -5,6 +5,7 @@ import { ArrowLeft, User, Mail, Eye, EyeOff } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
+import { setDashboardUserName } from "../utils/dashboardProfile";
 
 const countries = [
   { code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
@@ -64,6 +65,7 @@ export const RegisteredBusinessScreen: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setDashboardUserName(formData.businessName);
       navigate('/signup/verify-email');
     }
   };

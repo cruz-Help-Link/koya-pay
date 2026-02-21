@@ -1,10 +1,11 @@
 // screens/StarterBusinessScreen.tsx
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, User, Mail, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
+import { setDashboardUserName } from "../utils/dashboardProfile";
 
 const countries = [
   { code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
@@ -64,6 +65,7 @@ export const StarterBusinessScreen: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setDashboardUserName(formData.fullName);
       navigate('/signup/verify-email');
     }
   };
