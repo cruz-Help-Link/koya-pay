@@ -11,24 +11,20 @@ export const Container: React.FC<ContainerProps> = ({
   className = '',
 }) => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#c9b8ff]">
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Layer */}
+      <div className="absolute inset-0 bg-[#c6b3ec]">
+        {/* Subtle geometric decoration overlay */}
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute top-10 right-10 h-64 w-64 rounded-full bg-[#d6c7ff]/45 blur-3xl" />
+          <div className="absolute bottom-20 left-10 h-80 w-80 rounded-full bg-[#b39de8]/30 blur-3xl" />
+        </div>
 
-      {/* Decoration Image Underlay */}
-       <img
-        src={bgDecoration}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
-      />
-
-      {/* Purple Glow Decorations */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-[#c9b8ff] rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#AE92FF] rounded-full blur-3xl" />
       </div>
 
       {/* Brand Overlay Layer */}
       <div
-        className={`absolute inset-0 mix-blend-multiply `}
+        className={`absolute inset-0 ${overlayStyles[overlayIntensity]}`}
         aria-hidden="true"
       />
 

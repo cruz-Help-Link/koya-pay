@@ -6,6 +6,7 @@ import {
 } from '../connected/auth';
 import {
   OnboardingIntroPage,
+  OwnerVerificationIntroSuccessPage,
   OwnerDetailsFormPage,
   BusinessDetailsFormPage,
   BusinessLocationIntroPage,
@@ -18,12 +19,14 @@ import {
   ExecutiveVerificationFormPage,
   BusinessContactOTPPage,
   CompanyVerificationSuccessPage,
+  DocumentUploadSuccessPage,
 } from '../connected/onboarding';
 import OnboardingLayout from '../layouts/OnboardingLayout';
 import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
+import { StarterBusinessSuccessScreen } from '../screens/StarterBusinessSuccessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 import KoyaPayLogin from "../pages/KoyaPayLogin";
 

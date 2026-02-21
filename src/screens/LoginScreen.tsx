@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { Mail, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
+import { setDashboardUserNameFromEmail } from "../utils/dashboardProfile";
 
 export const LoginScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export const LoginScreen: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setDashboardUserNameFromEmail(formData.email);
       // Navigate to dashboard or onboarding
       navigate('/onboarding/intro');
     }

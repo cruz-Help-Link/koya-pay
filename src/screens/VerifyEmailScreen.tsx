@@ -14,39 +14,62 @@ export const VerifyEmailScreen: React.FC = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => clearInterval(interval);
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
   }, []);
 
   const handleChange = (index: number, value: string) => {
-    // Only allow digits
     if (value && !/^\d$/.test(value)) return;
-    if (value.length > 1) return;
 
-    const newOtp = [...otp];
-    newOtp[index] = value;
-    setOtp(newOtp);
+    const nextOtp = [...otp];
+    nextOtp[index] = value;
+    setOtp(nextOtp);
 
-    // Auto-focus next input
-    if (value && index < 5) {
+    if (value && index < nextOtp.length - 1 && inputRefs.current[index + 1]) {
       inputRefs.current[index + 1]?.focus();
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+  const handleKeyDown = (index: number, event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
   };
 
-  const handleResend = () => {
-    setTimer(59);
-    setOtp(['', '', '', '', '', '']);
+  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const pasted = event.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
+    if (!pasted) return;
+
+    const nextOtp = [...otp];
+    for (let i = 0; i < pasted.length; i += 1) {
+      nextOtp[i] = pasted[i];
+    }
+    setOtp(nextOtp);
+
+    const focusIndex = Math.min(pasted.length, 5);
+    inputRefs.current[focusIndex]?.focus();
   };
 
   const handleVerify = () => {
+    const code = otp.join("");
+    if (code.length !== 6) return;
+    navigate("/signup/starter-success");
+  };
+
+  const isComplete = otp.every((digit) => digit !== "");
+
+  return (
+    <Container overlayIntensity="medium">
+      <div className="flex min-h-screen flex-col px-6 pb-12 pt-16">
+        <div className="mb-8 flex flex-col items-center">
+          <img src="/src/assets/logo/koyapay-logo.png" className="h-20 w-20 object-contain -mb-8" alt="KoyaPay" />
+          <div className="mt-6 text-2xl font-semibold">
+            <span className="text-gray-400">Koya</span>
+            <span className="text-black">Pay</span>
+          </div>
+        </div>
     setIsVerifying(true);
   };
 
@@ -68,51 +91,39 @@ export const VerifyEmailScreen: React.FC = () => {
                <Logo />
 
 
-        {/* Header */}
-        <div className="text-center mt-12 mb-6">
-          <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Verify Your Email</h1>
-          <p className="text-sm text-gray-600 leading-relaxed">
-            To verify your account, enter 6 digit OTP code
-            <br />
-            that was sent to your Email
-          </p>
+        <div className="mb-6">
+          <h1 className="mb-1 text-2xl font-bold text-[#1a1a1a]">Verify Email</h1>
+          <p className="text-sm text-gray-600">Enter the 6-digit code sent to your email</p>
         </div>
 
-        {/* OTP Input */}
-        <div className="flex justify-center gap-3 mb-8">
-          {otp.map((digit, index) => (
-            <input
-              key={index}
-              ref={(el) => (inputRefs.current[index] = el)}
-              type="text"
-              inputMode="numeric"
-              maxLength={1}
-              value={digit}
-              onChange={(e) => handleChange(index, e.target.value)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-              className="w-14 h-14 text-center text-2xl font-semibold bg-white/90 border-2 border-[#C9B8FF]/60 rounded-2xl focus:outline-none focus:border-[#221144] transition-colors"
-            />
-          ))}
-        </div>
+        <div className="mb-auto">
+          <div className="mb-8 flex justify-center gap-3">
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                ref={(element) => {
+                  inputRefs.current[index] = element;
+                }}
+                type="text"
+                inputMode="numeric"
+                maxLength={1}
+                value={digit}
+                onChange={(event) => handleChange(index, event.target.value)}
+                onKeyDown={(event) => handleKeyDown(index, event)}
+                onPaste={handlePaste}
+                className="h-14 w-12 rounded-xl border-2 border-[#C9B8FF]/60 bg-[#E5DEFF]/40 text-center text-xl font-bold text-[#1a1a1a] transition-colors focus:border-[#221144] focus:outline-none"
+              />
+            ))}
+          </div>
 
-        {/* Timer */}
-        <div className="text-center mb-2">
-          <p className="text-2xl font-bold text-[#1a1a1a]">
-            00:{timer.toString().padStart(2, '0')}
-          </p>
-        </div>
-
-        {/* Resend */}
-        <div className="text-center mb-auto">
-          <p className="text-sm text-gray-600 mb-2">Didn't get any code?</p>
-          <button
-            onClick={handleResend}
-            disabled={timer > 0}
-            className="text-sm text-[#1a1a1a] font-semibold hover:text-[#221144] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Resend Code
-          </button>
-        </div>
+          <div className="mb-8 text-center">
+            <p className="text-sm text-gray-600">
+              Didn&apos;t receive the code?{" "}
+              <button type="button" onClick={() => setOtp(Array(6).fill(""))} className="font-semibold text-[#221144] hover:underline">
+                Resend
+              </button>
+            </p>
+          </div>
 
         {/* Action Buttons */}
         <div className="space-y-4 mt-4">

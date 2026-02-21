@@ -1,24 +1,11 @@
-import { ArrowLeft, ShieldCheck, ArrowRight, Star } from "lucide-react";
-import { Button, StepNavigation } from "../../components/ui";
-import { Container } from '../../components/ui/Container';
+import { Smile } from "lucide-react";
+import { Button } from "../../components/ui/Button";
 
 interface ReviewSuccessPageProps {
   onContinue: () => void;
-  onSkip: () => void;
-  onNext: () => void;
-  currentStep?: number;
-  totalSteps?: number;
-  monthlyLimit?: string;
 }
 
-export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
-  onContinue,
-  onSkip,
-  onNext,
-  currentStep = 4,
-  totalSteps = 7,
-  monthlyLimit = '2 Million per month',
-}) => {
+export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({ onContinue }) => {
   return (
     <Container>
       <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
@@ -83,28 +70,34 @@ export const ReviewSuccessPage: React.FC<ReviewSuccessPageProps> = ({
               </p>
             </div>
 
-            {/* Action Button */}
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={onContinue}
-            >
-              <span className="flex items-center justify-center gap-2">
-                Go to Dashboard
-                <ArrowRight className="w-5 h-5" />
-              </span>
-            </Button>
-          </div>
-        </div>
+      {/* Success Content */}
+      <div className="flex flex-col items-center flex-1 justify-end pb-8">
+        {/* Smiley Icon - black smiley face with thin lines, no background */}
+        <Smile className="w-32 h-32 text-black mb-8" strokeWidth={1.5} />
 
-        {/* Progress Indicator */}
-        <StepNavigation
-          totalSteps={totalSteps}
-          currentStep={currentStep}
-          onNext={onNext}
-          onSkip={onSkip}
-        />
+        {/* Success Text */}
+        <div className="text-center space-y-4 mb-12">
+          <h1 className="text-4xl font-bold text-white">
+            Successful
+          </h1>
+
+          {/* Verification Message */}
+          <p className="text-lg text-white text-center px-4">
+            Owner's verification complete!
+          </p>
+        </div>
       </div>
-    </Container>
+
+      {/* Action Button */}
+      <div className="w-full max-w-md">
+        <Button
+          variant="primary"
+          fullWidth
+          onClick={onContinue}
+        >
+          Continue
+        </Button>
+      </div>
+    </div>
   );
 };

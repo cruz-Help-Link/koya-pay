@@ -5,6 +5,10 @@ export const CompanyVerificationSuccessPage = () => {
   const navigate = useNavigate();
 
   const handleContinue = () => {
+    // Go to splash screen when company verification is complete
+    navigate('/');
+  };
+
     // Navigate to dashboard after successful verification
     navigate('/onboarding/location-intro');
   };
@@ -20,11 +24,6 @@ export const CompanyVerificationSuccessPage = () => {
   return (
     <CompanyVerificationSuccessPageComponent
       onContinue={handleContinue}
-      onSkip={handleSkip}
-      onNext={handleNext}
-      currentStep={5}
-      totalSteps={7}
-      monthlyLimit="5 Million per month"
     />
   );
 };

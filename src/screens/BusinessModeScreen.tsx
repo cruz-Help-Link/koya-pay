@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Globe, Store, Grid } from 'lucide-react';
+import { ArrowLeft, Globe, CloudOff, User } from 'lucide-react';
 import { Container } from '../components/ui/Container';
 import { SocialButton } from '../components/ui/SocialButton';
 import Logo from '../components/Logo';
@@ -66,7 +66,7 @@ export const BusinessModeScreen: React.FC = () => {
                 : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#221144]/50'
             }`}
           >
-            <Store className="w-7 h-7" />
+            <CloudOff className="w-7 h-7" />
             Offline
           </button>
 
@@ -78,7 +78,7 @@ export const BusinessModeScreen: React.FC = () => {
                 : 'border-[#C9B8FF] bg-[#E5DEFF]/40 hover:border-[#221144]/50'
             }`}
           >
-            <Grid className="w-7 h-7" />
+            <User className="w-7 h-7" />
             Both
           </button>
         </div>

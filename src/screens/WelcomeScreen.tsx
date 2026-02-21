@@ -17,11 +17,11 @@ export const WelcomeScreen: React.FC = () => {
       <div className="relative z-10 w-full max-w-md">
         <div className="flex flex-col items-center mb-16">
           <img 
-            src='/src/assets/logo/koyapay-logo.png' 
-            className='w-20 h-20 object-contain -mb-8' 
+            src='/src/assets/logo/logo.png' 
+            className='w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain -mb-8' 
             alt="KoyaPay" 
           />
-          <div className="text-2xl font-semibold mt-6">
+          <div className="text-2xl md:text-3xl font-semibold mt-6">
             <span className="text-gray-400">Koya</span>
             <span className="text-black">Pay</span>
           </div>
