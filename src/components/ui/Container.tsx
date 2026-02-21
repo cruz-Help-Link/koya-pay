@@ -11,16 +11,16 @@ export const Container: React.FC<ContainerProps> = ({
   className = '',
 }) => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#c9b8ff]">
-
+    // bg-[#c9b8ff]
+    <div className="relative min-h-screen w-full overflow-hidden 
+    bg-[#afa2d6]
+    ">
       {/* Decoration Image Underlay */}
        <img
         src={bgDecoration}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
       />
-
-      {/* Purple Glow Decorations */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 right-10 w-64 h-64 bg-[#c9b8ff] rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#AE92FF] rounded-full blur-3xl" />
