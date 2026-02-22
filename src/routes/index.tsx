@@ -109,6 +109,10 @@ export const router = createBrowserRouter([
         element: <OnboardingIntroPage />,
       },
       {
+        path: "owner-verification-intro-success",
+        element: <OwnerVerificationIntroSuccessPage />,
+      },
+      {
         path: "owner-details",
         element: <OwnerDetailsFormPage />,
       },
@@ -147,6 +151,10 @@ export const router = createBrowserRouter([
       {
         path: "document-upload",
         element: <DocumentUploadPage />,
+      },
+      {
+        path: "document-upload-success",
+        element: <DocumentUploadSuccessPage />,
       },
 
       // Live photo upload

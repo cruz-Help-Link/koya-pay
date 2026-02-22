@@ -32,6 +32,10 @@ export const RegisteredBusinessScreen: React.FC = () => {
     country: countries[0],
   });
 
+  React.useEffect(() => {
+    sessionStorage.setItem('accountType', 'registered');
+  }, []);
+
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     

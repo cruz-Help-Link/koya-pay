@@ -30,6 +30,10 @@ export const StarterBusinessScreen: React.FC = () => {
     country: countries[0],
   });
 
+  React.useEffect(() => {
+    sessionStorage.setItem('accountType', 'starter');
+  }, []);
+
  const validateForm = () => {
    const newErrors: Record<string, string> = {};
 
