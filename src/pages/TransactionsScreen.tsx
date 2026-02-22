@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Send, Download, Landmark, Banknote } from "lucide-react";
-import { allTransactions, Transaction, TxType } from "@/utils/transaction";
+import { allTransactions } from "@/utils/transaction";
+import type { Transaction, TxType } from "@/utils/transaction";
 
 const iconMap: Record<TxType, any> = {
   send: Send,
