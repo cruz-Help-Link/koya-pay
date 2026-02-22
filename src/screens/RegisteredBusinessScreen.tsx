@@ -6,6 +6,7 @@ import { Button } from "../components/ui/Button";
 import { SocialButton } from "../components/ui/SocialButton";
 import { Container } from "../components/ui/Container";
 import Logo from "../components/Logo";
+import { setDashboardUserName } from "../utils/dashboardProfile";
 
 const countries = [
   { code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
