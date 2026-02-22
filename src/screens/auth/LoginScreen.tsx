@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoadingBar from "../LoadingBar";
-import { Button, Input } from "../../components/ui";
 import { Eye, EyeOff, Lock } from "lucide-react";
+import { Button, Input } from "../../components/ui";
+import { Container } from "../../components/ui/Container";
+import Logo from "../../components/Logo";
 
 export const LoginScreen: React.FC = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -42,22 +41,16 @@ export const LoginScreen: React.FC = () => {
   };
 
   const handleLogin = () => {
-    navigate('/dashboard/home')
+    if (!validate()) return;
+    navigate('/dashboard/home');
   };
 
-  if (isLoading) {
-    return <LoadingBar duration={3000} onComplete={() => navigate("/home")} />;
-  }
-
   return (
-    <Container>
-
+    <Container overlayIntensity="medium">
       <div className="w-full max-w-md">
         <div className="backdrop-blur-sm shadow-xl p-8 space-y-6">
-          {/* Logo */}
-                  <Logo/>
+          <Logo />
 
-          {/* Header */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               Welcome Back
@@ -65,7 +58,6 @@ export const LoginScreen: React.FC = () => {
             <p className="text-gray-600">Sign in to your account</p>
           </div>
 
-          {/* Form */}
           <div className="space-y-4">
             <div>
               <Input
@@ -73,8 +65,7 @@ export const LoginScreen: React.FC = () => {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange("email")}
-               leftIcon={<Lock className="w-5 h-5" />}
-
+                leftIcon={<Lock className="w-5 h-5" />}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>
@@ -89,7 +80,6 @@ export const LoginScreen: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange("password")}
                   leftIcon={<Lock className="w-5 h-5" />}
-
                 />
                 <button
                   type="button"
@@ -110,7 +100,6 @@ export const LoginScreen: React.FC = () => {
               )}
             </div>
 
-            {/* Forgot Password */}
             <div className="text-right">
               <button
                 onClick={() => navigate("/forgot-password")}
@@ -121,7 +110,6 @@ export const LoginScreen: React.FC = () => {
             </div>
           </div>
 
-          {/* Login Button */}
           <Button
             onClick={handleLogin}
             className="w-full bg-gradient-to-r from-[#221144] to-[#AE92FF] hover:from-[#1a0d33] hover:to-[#9e7ff0] text-white font-semibold py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
@@ -129,16 +117,17 @@ export const LoginScreen: React.FC = () => {
             Sign In
           </Button>
 
-          {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
+            <button
               onClick={() => navigate("/signup")}
               className="text-[#221144] font-semibold hover:text-[#1a0d33] transition-colors"
             >
               Sign Up
+            </button>
           </p>
         </div>
       </div>
-      </Container>
+    </Container>
   );
 };
