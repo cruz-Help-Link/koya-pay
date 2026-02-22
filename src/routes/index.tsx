@@ -26,7 +26,6 @@ import SignupLayout from '../layouts/SignupLayout';
 import { SplashScreen } from '../screens/SplashScreen';
 import { BusinessModeScreen } from '../screens/BusinessModeScreen';
 import { StarterBusinessScreen } from '../screens/StarterBusinessScreen';
-import { StarterBusinessSuccessScreen } from '../screens/StarterBusinessSuccessScreen';
 import { CreateNewPasswordScreen } from '../screens/CreateNewPasswordScreen';
 import KoyaPayLogin from "../pages/KoyaPayLogin";
 
@@ -90,6 +89,10 @@ export const router = createBrowserRouter([
       {
         path: "verify-email",
         element: <VerifyEmailScreen />,
+      },
+      {
+        path: 'create-new-password',
+        element: <CreateNewPasswordScreen />,
       },
     ],
   },

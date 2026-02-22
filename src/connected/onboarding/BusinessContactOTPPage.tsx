@@ -6,7 +6,10 @@ export const BusinessContactOTPPage = () => {
 
   const handleSubmit = (otp: string) => {
     console.log('OTP submitted:', otp);
-    navigate('/onboarding/company-verification-success');
+  };
+
+  const handleGoToDashboard = () => {
+    navigate('/dashboard/home');
   };
 
   const handleResend = () => {
@@ -18,13 +21,14 @@ export const BusinessContactOTPPage = () => {
   };
 
   const handleNext = () => {
-    navigate('/onboarding/company-verification-success');
+    navigate('/dashboard/home');
   };
 
   return (
     <BusinessContactOTPPageComponent
       contactEmail="support@company.com"
       onSubmit={handleSubmit}
+      onGoToDashboard={handleGoToDashboard}
       onResend={handleResend}
       onSkip={handleSkip}
       onNext={handleNext}

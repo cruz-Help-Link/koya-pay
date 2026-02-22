@@ -9,44 +9,38 @@ export const DocumentUploadSuccessPage: React.FC<DocumentUploadSuccessPageProps>
   onContinue,
 }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#3D1B6B] via-[#6B46C1] to-[#9575CD] flex flex-col items-center justify-between px-6 py-20">
-      {/* Logo - consistent with other screens */}
+    <div className="min-h-screen bg-gradient-to-b from-[#2A1B55] to-[#9E85F3] flex flex-col items-center px-6 pt-24 pb-16">
       <div className="flex flex-col items-center">
-        <img 
-          src='/src/assets/logo/primary-dark.png' 
-          className='w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain' 
-          alt="KoyaPay" 
+        <img
+          src='/src/assets/logo/primary-dark.png'
+          className='w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain'
+          alt="KoyaPay"
         />
       </div>
 
-      {/* Success Content */}
-      <div className="flex flex-col items-center flex-1 justify-end pb-8">
-        {/* Smiley Icon - black smiley face with thin lines, no background */}
-        <Smile className="w-32 h-32 text-black mb-8" strokeWidth={1.5} />
+      <div className="flex flex-col items-center flex-1 justify-center -mt-6">
+        <Smile className="w-32 h-32 text-black mb-6" strokeWidth={2.2} />
 
-        {/* Success Text */}
-        <div className="text-center space-y-4 mb-12">
-          <h1 className="text-5xl font-bold text-white">
+        <div className="text-center space-y-3 mb-10">
+          <h1 className="text-6xl font-bold text-[#F6F2FF]">
             Successful
           </h1>
-
-          {/* Verification Message */}
-          <p className="text-xl text-white text-center px-4">
-            You're fully verified 🎉<br/>
+          <p className="text-4xl text-[#221144] text-center px-4 leading-tight">
+            You're fully verified
+            <br />
             Limits lifted
           </p>
         </div>
-      </div>
 
-      {/* Action Button */}
-      <div className="w-full max-w-md">
-        <Button
-          variant="primary"
-          fullWidth
-          onClick={onContinue}
-        >
-          Dashboard
-        </Button>
+        <div className="w-full max-w-xs">
+          <Button
+            variant="primary"
+            fullWidth
+            onClick={onContinue}
+          >
+            Dashboard
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -4,12 +4,14 @@ import { useOnboardingStore } from '../../stores';
 
 export const BusinessDetailsFormPage = () => {
   const navigate = useNavigate();
-  const { currentStep, goToNextStep, setBusinessDetails } = useOnboardingStore();
+  const { currentStep, setBusinessDetails } = useOnboardingStore();
 
   const handleSubmit = (data: any) => {
     setBusinessDetails(data);
-    goToNextStep();
-    navigate('/onboarding/company-verification-intro');
+  };
+
+  const handleGoToDashboard = () => {
+    navigate('/dashboard/home');
   };
 
   const handleSkip = () => {
@@ -17,13 +19,13 @@ export const BusinessDetailsFormPage = () => {
   };
 
   const handleNext = () => {
-    goToNextStep();
-    navigate('/onboarding/company-verification-intro');
+    navigate('/onboarding/location-intro');
   };
 
   return (
     <BusinessDetailsFormPageComponent
       onSubmit={handleSubmit}
+      onGoToDashboard={handleGoToDashboard}
       onSkip={handleSkip}
       onNext={handleNext}
       currentStep={currentStep}

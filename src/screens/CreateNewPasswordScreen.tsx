@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Lock, Eye, EyeOff, ArrowLeft, Check } from 'lucide-react';
 import { Button } from "../components/ui/Button";
 import { Container } from "../components/ui/Container";
-import Logo from "../components/Logo";
-import { ArrowLeft, Check, Eye, EyeOff, Lock } from "lucide-react";
 
 export const CreateNewPasswordScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -40,7 +39,6 @@ export const CreateNewPasswordScreen: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Show success screen
       setShowSuccess(true);
     }
   };
@@ -49,62 +47,18 @@ export const CreateNewPasswordScreen: React.FC = () => {
     navigate('/login');
   };
 
-  if (showSuccess) {
-    return (
-      <Container>
-        <div className="flex flex-col min-h-screen px-6 pt-20 pb-12">
-
-          {/* Header */}
-          <div className="text-center mt-12 mb-6">
-            <h1 className="text-2xl font-bold text-[#1a1a1a] mb-2">Create New Password</h1>
-            <p className="text-sm text-gray-600">New password confirmed</p>
-          </div>
-
-               <Logo />
-          {/* Success Content */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
-              {/* Success Icon - Checkmark in purple circle */}
-              <div className="flex justify-center mb-6">
-                <div className="w-24 h-24 bg-[#AE92FF]/30 rounded-full flex items-center justify-center">
-                  <Check className="w-16 h-16 text-[#221144]" strokeWidth={3} />
-                </div>
-              </div>
-
-              {/* Success Message */}
-              <div className="text-center space-y-2 mb-8">
-                <h2 className="text-lg font-semibold text-[#1a1a1a]">
-                  Your Password has been successfully changed
-                </h2>
-              </div>
-
-              {/* Action Button */}
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={handleContinueToLogin}
-              >
-                Proceed with New Password
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
   return (
-    <Container>
-      <div className="flex flex-col min-h-screen px-6 pt-16 pb-12">
-        {/* Back Arrow */}
-        <button
-          onClick={() => navigate('/forgot-password/otp')}
-          className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
-        >
-          <ArrowLeft className="w-6 h-6 text-gray-600" />
-        </button>
+    <Container overlayIntensity="medium">
+      <div className="relative flex flex-col min-h-screen px-6 pt-16 pb-12">
+        {!showSuccess && (
+          <button
+            onClick={() => navigate('/forgot-password/otp')}
+            className="absolute top-6 left-6 p-2 rounded-xl hover:bg-white/50 transition-colors"
+          >
+            <ArrowLeft className="w-6 h-6 text-gray-600" />
+          </button>
+        )}
 
-        {/* Logo */}
         <div className="flex flex-col items-center">
           <img src='/src/assets/logo/koyapay-logo.png' className='w-20 h-20 object-contain -mb-8' alt="KoyaPay" />
           <div className="text-2xl font-semibold mt-6">
@@ -112,88 +66,102 @@ export const CreateNewPasswordScreen: React.FC = () => {
           </div>
         </div>
 
-        {/* Header */}
         <div className="mt-8 mb-6">
           <h1 className="text-2xl font-bold text-[#1a1a1a] mb-1">
             Create New Password
           </h1>
-          <p className="text-sm text-gray-600">Enter your new password</p>
+          <p className="text-sm text-gray-600">
+            {showSuccess ? 'New password confirmed' : 'Enter your new password'}
+          </p>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 mb-auto">
-          {/* Password */}
-          <div>
-            <div className="relative">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <Lock className="w-6 h-6" />
+        {!showSuccess ? (
+          <form onSubmit={handleSubmit} className="space-y-4 mb-auto">
+            <div>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#221144] hover:text-[#1a0d33] transition-colors"
+                >
+                  {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
+                </button>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="New Password"
+                  className="w-full pl-14 pr-12 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
+                  value={formData.password}
+                  onChange={(e) => {
+                    setFormData({ ...formData, password: e.target.value });
+                    setErrors({ ...errors, password: '' });
+                  }}
+                />
               </div>
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#221144] hover:text-[#1a0d33] transition-colors"
-              >
-                {showPassword ? (
-                  <Eye className="w-5 h-5" />
-                ) : (
-                  <EyeOff className="w-5 h-5" />
-                )}
-              </button>
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="New Password"
-                className="w-full pl-14 pr-12 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
-                value={formData.password}
-                onChange={(e) => {
-                  setFormData({ ...formData, password: e.target.value });
-                  setErrors({ ...errors, password: '' });
-                }}
-              />
+              {errors.password && <p className="mt-1 text-sm text-red-500">{errors.password}</p>}
             </div>
-            {errors.password && (
-              <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-            )}
-          </div>
 
-          {/* Confirm Password */}
-          <div>
-            <div className="relative">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
-                <Lock className="w-6 h-6" />
+            <div>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#221144]">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#221144] hover:text-[#1a0d33] transition-colors"
+                >
+                  {showConfirmPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
+                </button>
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  className="w-full pl-14 pr-12 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
+                  value={formData.confirmPassword}
+                  onChange={(e) => {
+                    setFormData({ ...formData, confirmPassword: e.target.value });
+                    setErrors({ ...errors, confirmPassword: '' });
+                  }}
+                />
               </div>
-              <button
-                type="button"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#221144] hover:text-[#1a0d33] transition-colors"
-              >
-                {showConfirmPassword ? (
-                  <Eye className="w-5 h-5" />
-                ) : (
-                  <EyeOff className="w-5 h-5" />
-                )}
-              </button>
-              <input
-                type={showConfirmPassword ? "text" : "password"}
-                placeholder="Confirm Password"
-                className="w-full pl-14 pr-12 py-4 rounded-2xl bg-[#E5DEFF]/40 border-2 border-[#C9B8FF]/60 focus:outline-none focus:border-[#221144] text-[#1a1a1a] placeholder-gray-500 font-medium transition-colors"
-                value={formData.confirmPassword}
-                onChange={(e) => {
-                  setFormData({ ...formData, confirmPassword: e.target.value });
-                  setErrors({ ...errors, confirmPassword: '' });
-                }}
-              />
+              {errors.confirmPassword && <p className="mt-1 text-sm text-red-500">{errors.confirmPassword}</p>}
             </div>
-            {errors.confirmPassword && (
-              <p className="mt-1 text-sm text-red-500">{errors.confirmPassword}</p>
-            )}
-          </div>
 
-          <div className="pt-4">
-            <Button type="submit" variant="primary" fullWidth>
-              Create Password
+            <div className="pt-4">
+              <Button type="submit" variant="primary" fullWidth>
+                Create Password
+              </Button>
+            </div>
+          </form>
+        ) : (
+          <div className="flex-1" />
+        )}
+
+        {showSuccess && (
+          <div className="absolute inset-x-0 bottom-0 rounded-t-[2.5rem] bg-white px-8 pb-10 pt-12 shadow-2xl">
+            <div className="mb-8 flex justify-center">
+              <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-[#221144] bg-[#E5DEFF]">
+                <Check className="h-14 w-14 text-[#221144]" strokeWidth={2.8} />
+              </div>
+            </div>
+
+            <div className="mb-8 text-center">
+              <h2 className="text-3xl font-bold leading-tight text-[#1a1a1a]">
+                Your Password has been successfully changed
+              </h2>
+            </div>
+
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={handleContinueToLogin}
+            >
+              Proceed with New Password
             </Button>
           </div>
-        </form>
+        )}
       </div>
     </Container>
   );
