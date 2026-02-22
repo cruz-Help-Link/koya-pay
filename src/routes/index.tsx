@@ -31,10 +31,11 @@ import KoyaPayLogin from "../pages/KoyaPayLogin";
 
 import { VerifyEmailChangePassword } from "../screens/auth/VerifyEmailChangePassword";
 import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen";
-import Dashboard from '../pages/Dashboard';
 import { LoginUserScreen } from '../connected/auth/LoginUserScreen';
-import DashboardLayout from '../layouts/DashboardLayout';
-import TransactionsScreen from "../pages/TransactionsScreen";
+import { CreateInvoiceScreen } from '../screens/CreateInvoiceScreen';
+import { DashboardHomeScreen } from '../screens/DashboardHomeScreen';
+import { DashboardTransactionsScreen } from '../screens/DashboardTransactionsScreen';
+import { DashboardMoreScreen } from '../screens/DashboardMoreScreen';
 
 
 export const router = createBrowserRouter([
@@ -61,6 +62,26 @@ export const router = createBrowserRouter([
   {
     path: "create-new-password",
     element: <CreateNewPasswordScreen />,
+  },
+  {
+    path: "create-invoice",
+    element: <CreateInvoiceScreen />,
+  },
+  {
+    path: "dashboard",
+    element: <Navigate to="/dashboard/home" replace />,
+  },
+  {
+    path: "dashboard/home",
+    element: <DashboardHomeScreen />,
+  },
+  {
+    path: "dashboard/transactions",
+    element: <DashboardTransactionsScreen />,
+  },
+  {
+    path: "dashboard/more",
+    element: <DashboardMoreScreen />,
   },
   {
     path: "/signup",
@@ -168,25 +189,6 @@ export const router = createBrowserRouter([
         element: <OnboardingCompletePage />,
       },
       
-    ],
-  },
-  {
-  path: "/dashboard",
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/dashboard/home" replace />,
-      },
-      {
-        path: 'home',
-        element: <Dashboard />,
-      },
-      {
-        path: 'transactions',
-        element: <TransactionsScreen />,
-      },
-      //CREATE RECEIPT
     ],
   },
   {
